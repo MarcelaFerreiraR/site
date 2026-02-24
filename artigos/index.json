@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "analise-descritiva-com-python",
+    "title": "Análise Descritiva com Python",
+    "date": "2025-09-11",
+    "readTime": "8 min",
+    "tag": "Python · Estatística",
+    "description": "Um guia prático de análise descritiva aplicado ao dataset de gorjetas — cobrindo medidas de tendência central, dispersão, correlação e visualização exploratória."
+  },
+  {
+    "slug": "vamos-falar-sobre-analise-de-dados",
+    "title": "Vamos Falar Sobre Análise de Dados",
+    "date": "2025-09-01",
+    "readTime": "4 min",
+    "tag": "Data Science",
+    "description": "Você realmente sabe o que é análise de dados e como ela pode auxiliar nos seus objetivos? Uma introdução honesta sobre o tema, partindo da minha própria jornada."
+  }
+]
