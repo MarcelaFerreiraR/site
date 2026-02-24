@@ -39,8 +39,8 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--emerald); letter-spacing: 0.02em; }
-    .nav-logo span { color: var(--text-muted); font-style: italic; font-size: 0.85rem; }
+    .nav-logo { font-family: var(--serif); font-size: 1.4rem; color: var(--emerald); letter-spacing: 0.02em; line-height: 1.1; display: flex; flex-direction: column; }
+    .nav-logo span { color: var(--text-muted); font-style: italic; font-size: 0.7rem; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.15rem; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
     .nav-links a {
       font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted);
@@ -267,7 +267,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Marcela Rocha <span>/ Economista & Data Scientist</span></div>
+    <div class="nav-logo">Marcela Rocha <span>Economista & Data Scientist</span></div>
     <ul class="nav-links">
       <li><a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a></li>
       <li><a href="#projetos" data-pt="Projetos" data-en="Projects">Projetos</a></li>
@@ -305,22 +305,19 @@
       <div class="sobre-sidebar">
         <div class="section-label" data-pt="01 — Sobre mim" data-en="01 — About me">01 — Sobre mim</div>
         <h2 class="section-title" data-pt="Quem sou" data-en="Who I am">Quem sou</h2>
-        <p data-pt="Ferramentas e tecnologias:" data-en="Tools and technologies:">Ferramentas e tecnologias:</p>
+        <p data-pt="Tecnologias & Ferramentas:" data-en="Technologies & Tools:">Tecnologias & Ferramentas:</p>
         <div class="skills-list">
-          <div class="skill-item">Python · Pandas · NumPy</div>
-          <div class="skill-item">R · ggplot2 · tidyverse</div>
-          <div class="skill-item">SQL · PostgreSQL</div>
-          <div class="skill-item">Econometria · VAR · ARIMA</div>
-          <div class="skill-item">Machine Learning · Sklearn</div>
-          <div class="skill-item">Power BI · Tableau</div>
-          <div class="skill-item">Git · GitHub</div>
-          <div class="skill-item">BACEN API · IBGE SIDRA</div>
+          <div class="skill-item">Python · SQL · R</div>
+          <div class="skill-item">Power BI · Metabase · Looker Studio</div>
+          <div class="skill-item">Git · Jupyter · Excel</div>
+          <div class="skill-item">Econometria · Forecasting</div>
         </div>
       </div>
       <div class="sobre-main">
-        <p data-pt="<strong>Economista e Cientista de Dados</strong> com foco em macroeconomia brasileira, análise de conjuntura e modelagem econométrica. Minha trajetória combina formação sólida em teoria econômica com habilidades práticas em análise de dados e programação." data-en="<strong>Economist and Data Scientist</strong> focused on Brazilian macroeconomics, economic outlook analysis, and econometric modeling. My background combines solid theoretical economics training with practical data analysis and programming skills."><strong>Economista e Cientista de Dados</strong> com foco em macroeconomia brasileira, análise de conjuntura e modelagem econométrica. Minha trajetória combina formação sólida em teoria econômica com habilidades práticas em análise de dados e programação.</p>
-        <p data-pt="Acredito que dados bem interpretados têm o poder de revelar padrões invisíveis na economia — ciclos, assimetrias e relações que moldam decisões de política econômica e investimentos." data-en="I believe that well-interpreted data has the power to reveal invisible patterns in the economy — cycles, asymmetries, and relationships that shape economic policy decisions and investments.">Acredito que dados bem interpretados têm o poder de revelar padrões invisíveis na economia — ciclos, assimetrias e relações que moldam decisões de política econômica e investimentos.</p>
-        <p data-pt="Atualmente produzo análises de conjuntura macroeconômica, desenvolvo modelos preditivos e publico pesquisas sobre a economia brasileira, com especial atenção a inflação, política monetária e mercado de trabalho." data-en="Currently I produce macroeconomic outlook analyses, develop predictive models, and publish research on the Brazilian economy, with special attention to inflation, monetary policy, and the labor market.">Atualmente produzo análises de conjuntura macroeconômica, desenvolvo modelos preditivos e publico pesquisas sobre a economia brasileira, com especial atenção a inflação, política monetária e mercado de trabalho.</p>
+        <p data-pt="Sou a Marcela, economista, cientista de dados e apaixonada por entender como o mundo funciona. Acredito que a economia e os dados têm o poder de melhorar a sociedade, e que o método científico é a melhor ferramenta que temos para resolver problemas reais do dia a dia." data-en="I'm Marcela — economist, data scientist and passionate about understanding how the world works. I believe that economics and data have the power to improve society, and that the scientific method is the best tool we have to solve real, everyday problems.">Sou a Marcela — economista, cientista de dados e apaixonada por entender como o mundo funciona. Acredito que a economia e os dados têm o poder de melhorar a sociedade, e que o método científico é a melhor ferramenta que temos para resolver problemas reais do dia a dia.</p>
+        <p data-pt="Tudo começa com uma curiosidade que a economia soube nomear: <strong>entender os porquês do mundo</strong>. Por que os preços sobem? Por que o desemprego persiste mesmo quando o PIB cresce? Por que políticas bem-intencionadas às vezes pioram o problema que queriam resolver?" data-en="It all starts with a curiosity that economics gave a name to: <strong>understanding the why behind the world</strong>. Why do prices rise? Why does unemployment persist even when GDP grows? Why do well-intentioned policies sometimes worsen the very problem they set out to solve?">Tudo começa com uma curiosidade que a economia soube nomear: <strong>entender os porquês do mundo</strong>. Por que os preços sobem? Por que o desemprego persiste mesmo quando o PIB cresce? Por que políticas bem-intencionadas às vezes pioram o problema que queriam resolver?</p>
+        <p data-pt="A economia me ensinou que antes de aplicar qualquer solução, é preciso entender profundamente o problema — sua origem, sua estrutura, suas causas. Sem isso, corremos o risco de dar o remédio errado: em vez de curar o paciente, piorar o quadro. Os dados são o instrumento que torna esse diagnóstico possível. São eles que transformam intuição em evidência, teoria em insight acionável, e complexidade em clareza." data-en="Economics taught me that before applying any solution, you need to deeply understand the problem — its origin, its structure, its causes. Without that, you risk prescribing the wrong remedy: instead of healing the patient, making things worse. Data is the instrument that makes this diagnosis possible. It transforms intuition into evidence, theory into actionable insight, and complexity into clarity.">A economia me ensinou que antes de aplicar qualquer solução, é preciso entender profundamente o problema — sua origem, sua estrutura, suas causas. Sem isso, corremos o risco de dar o remédio errado: em vez de curar o paciente, piorar o quadro. Os dados são o instrumento que torna esse diagnóstico possível. São eles que transformam intuição em evidência, teoria em insight acionável, e complexidade em clareza.</p>
+        <p data-pt="Foi a pesquisa que me deu as ferramentas para fazer isso com rigor. Aprendi a formular hipóteses, questionar evidências, interpretar padrões e comunicar resultados de forma que gerem ação — não apenas relatórios. Hoje aplico essa mentalidade em projetos de data science, modelagem econométrica e análise estratégica, com um objetivo simples: <strong>ajudar a fazer as perguntas certas antes de buscar as respostas</strong>." data-en="It was research that gave me the tools to do this with rigor. I learned to formulate hypotheses, question evidence, interpret patterns and communicate results in ways that drive action — not just reports. Today I apply this mindset to data science projects, econometric modeling and strategic analysis, with one simple goal: <strong>helping ask the right questions before searching for answers</strong>.">Foi a pesquisa que me deu as ferramentas para fazer isso com rigor. Aprendi a formular hipóteses, questionar evidências, interpretar padrões e comunicar resultados de forma que gerem ação — não apenas relatórios. Hoje aplico essa mentalidade em projetos de data science, modelagem econométrica e análise estratégica, com um objetivo simples: <strong>ajudar a fazer as perguntas certas antes de buscar as respostas</strong>.</p>
       </div>
     </div>
   </section>
@@ -332,29 +329,67 @@
       <h2 class="section-title" style="margin-bottom:0" data-pt="Projetos de Dados" data-en="Data Projects">Projetos de Dados</h2>
     </div>
     <div class="projetos-grid">
+
+      <!-- COPOM Sentiment -->
       <div class="projeto-card">
-        <div class="projeto-tag">Econometria · Python</div>
-        <h3 data-pt="Modelo de Previsão do IPCA" data-en="IPCA Forecast Model">Modelo de Previsão do IPCA</h3>
-        <p data-pt="Modelo ARIMA/SARIMA para previsão de curto prazo da inflação ao consumidor brasileiro, utilizando dados do BACEN e IBGE com validação walk-forward." data-en="ARIMA/SARIMA model for short-term forecasting of Brazilian consumer inflation, using BACEN and IBGE data with walk-forward validation.">Modelo ARIMA/SARIMA para previsão de curto prazo da inflação ao consumidor brasileiro, utilizando dados do BACEN e IBGE com validação walk-forward.</p>
-        <div class="projeto-links"><a href="#" class="projeto-link">GitHub</a></div>
+        <div class="projeto-tag">NLP · R · Banco Central</div>
+        <h3 data-pt="Análise de Sentimentos COPOM" data-en="COPOM Sentiment Analysis">Análise de Sentimentos COPOM</h3>
+        <p data-pt="Pipeline em R que extrai as atas do COPOM diretamente do Banco Central do Brasil, aplica o léxico Loughran-McDonald e computa net sentiment score para cada reunião — mapeando o tom do BCB ao longo do ciclo monetário." data-en="R-based pipeline that fetches official COPOM PDFs from the Central Bank of Brazil, applies the Loughran-McDonald lexicon and computes net sentiment scores per meeting — mapping the BCB tone throughout the monetary cycle.">Pipeline em R que extrai as atas do COPOM diretamente do Banco Central, aplica o léxico Loughran-McDonald e computa net sentiment score para cada reunião — mapeando o tom do BCB ao longo do ciclo monetário.</p>
+        <div class="projeto-links">
+          <a href="https://github.com/MarcelaFerreiraR/AnaliseSentimentos" target="_blank" class="projeto-link">GitHub →</a>
+        </div>
       </div>
+
+      <!-- Brazil Telecom -->
       <div class="projeto-card">
-        <div class="projeto-tag">Séries Temporais · R</div>
-        <h3 data-pt="Análise de Política Monetária" data-en="Monetary Policy Analysis">Análise de Política Monetária</h3>
-        <p data-pt="Estudo sobre os efeitos da taxa Selic na atividade econômica brasileira usando modelo VAR estrutural com dados de 2000 a 2024." data-en="Study on the effects of the Selic rate on Brazilian economic activity using structural VAR model with data from 2000 to 2024.">Estudo sobre os efeitos da taxa Selic na atividade econômica brasileira usando modelo VAR estrutural com dados de 2000 a 2024.</p>
-        <div class="projeto-links"><a href="#" class="projeto-link">GitHub</a></div>
+        <div class="projeto-tag">Market Analysis · R · ANATEL</div>
+        <h3 data-pt="Análise de Mercado Telecom BR" data-en="Brazil Telecom Market Analysis">Análise de Mercado Telecom BR</h3>
+        <p data-pt="Projeto em R que avalia a presença de operadoras no mercado de telecomunicações brasileiro, identifica lacunas de serviço e oportunidades de expansão a partir de dados da ANATEL." data-en="R-based project evaluating telecom market presence in Brazil, identifying service gaps and expansion opportunities by analyzing data from ANATEL.">Projeto em R que avalia a presença de operadoras no mercado de telecomunicações brasileiro, identificando lacunas de serviço e oportunidades de expansão a partir de dados da ANATEL.</p>
+        <div class="projeto-links">
+          <a href="https://github.com/MarcelaFerreiraR/Brazil-Telecom-Analysis" target="_blank" class="projeto-link">GitHub →</a>
+        </div>
       </div>
+
+      <!-- Stock Analysis -->
       <div class="projeto-card">
-        <div class="projeto-tag">Dashboard · Python · API</div>
+        <div class="projeto-tag">Finance · Python · B3</div>
+        <h3 data-pt="Análise do Mercado de Ações BR" data-en="Brazilian Stock Market Analysis">Análise do Mercado de Ações BR</h3>
+        <p data-pt="Dashboard Python que extrai dados da B3 via TradingView e Yahoo Finance, com análise de pair trading, cálculo de beta e correlação entre ativos." data-en="Python dashboard that extracts B3 stock data from TradingView and Yahoo Finance, featuring pair trading analysis, beta calculation and asset correlation.">Dashboard Python que extrai dados da B3 via TradingView e Yahoo Finance, com análise de pair trading, cálculo de beta e correlação entre ativos.</p>
+        <div class="projeto-links">
+          <a href="https://github.com/MarcelaFerreiraR/brazilian-stock-analysis" target="_blank" class="projeto-link">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Assistente IA -->
+      <div class="projeto-card">
+        <div class="projeto-tag">IA · RAG · LangChain</div>
+        <h3 data-pt="Assistente Acadêmico com IA" data-en="Academic AI Assistant">Assistente Acadêmico com IA</h3>
+        <p data-pt="Assistente inteligente que utiliza Retrieval-Augmented Generation (RAG) para responder perguntas sobre PDFs acadêmicos, powered by Google Gemini e LangChain." data-en="Intelligent assistant using Retrieval-Augmented Generation (RAG) to answer questions about academic PDFs, powered by Google Gemini and LangChain.">Assistente inteligente que utiliza Retrieval-Augmented Generation (RAG) para responder perguntas sobre PDFs acadêmicos, powered by Google Gemini e LangChain.</p>
+        <div class="projeto-links">
+          <a href="https://github.com/MarcelaFerreiraR/Assistente_Academico_Gemini" target="_blank" class="projeto-link">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- IBC-Br / Macro dashboard -->
+      <div class="projeto-card">
+        <div class="projeto-tag">Macro · Python · BACEN API</div>
         <h3 data-pt="Monitor Macroeconômico BR" data-en="BR Macroeconomic Monitor">Monitor Macroeconômico BR</h3>
-        <p data-pt="Dashboard interativo com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central e IBGE." data-en="Interactive dashboard with Brazilian macroeconomic indicators automatically updated via Central Bank and IBGE APIs.">Dashboard interativo com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central e IBGE.</p>
-        <div class="projeto-links"><a href="#macro" class="projeto-link" data-pt="Ver Dashboard" data-en="View Dashboard">Ver Dashboard</a></div>
+        <p data-pt="Dashboard com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central — IPCA, Selic, Câmbio, IBC-Br, Desemprego e mais." data-en="Dashboard with Brazilian macroeconomic indicators automatically updated via Central Bank API — IPCA, Selic, FX, IBC-Br, Unemployment and more.">Dashboard com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central — IPCA, Selic, Câmbio, IBC-Br, Desemprego e mais.</p>
+        <div class="projeto-links">
+          <a href="#macro" class="projeto-link" data-pt="Ver Dashboard →" data-en="View Dashboard →">Ver Dashboard →</a>
+        </div>
       </div>
+
+      <!-- Análise Descritiva -->
       <div class="projeto-card">
-        <div class="projeto-tag" data-pt="Em breve" data-en="Coming soon">Em breve</div>
-        <h3 data-pt="Seu próximo projeto aqui" data-en="Your next project here">Seu próximo projeto aqui</h3>
-        <p data-pt="Este espaço está reservado para seus próximos projetos." data-en="This space is reserved for your upcoming projects.">Este espaço está reservado para seus próximos projetos.</p>
+        <div class="projeto-tag">Python · Estatística · EDA</div>
+        <h3 data-pt="Análise Descritiva com Python" data-en="Descriptive Analysis with Python">Análise Descritiva com Python</h3>
+        <p data-pt="Repositório com estudos e notebooks sobre análise de dados, explorando técnicas descritivas, estatísticas e de visualização aplicadas a datasets reais." data-en="Repository with data analysis studies and notebooks, exploring descriptive, statistical and visualization techniques applied to real datasets.">Repositório com estudos e notebooks sobre análise de dados, explorando técnicas descritivas, estatísticas e de visualização aplicadas a datasets reais.</p>
+        <div class="projeto-links">
+          <a href="https://github.com/MarcelaFerreiraR/AnaliseDeDados" target="_blank" class="projeto-link">GitHub →</a>
+        </div>
       </div>
+
     </div>
   </section>
 
