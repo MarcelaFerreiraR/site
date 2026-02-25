@@ -309,8 +309,10 @@
         <div class="skills-list">
           <div class="skill-item">Python · SQL · R</div>
           <div class="skill-item">Power BI · Metabase · Looker Studio</div>
+          <div class="skill-item">Azure Machine Learning · AWS</div>
           <div class="skill-item">Git · Jupyter · Excel</div>
           <div class="skill-item">Econometria · Forecasting</div>
+          <div class="skill-item">BACEN API · IBGE SIDRA</div>
         </div>
       </div>
       <div class="sobre-main">
@@ -476,7 +478,7 @@
     // Carrega artigos do index.json
     async function loadArticles() {
       try {
-        const base = location.pathname.replace(/\/[^/]*$/, '');
+        const base = '/site';
         const res = await fetch(base + '/artigos/index.json');
         const articles = await res.json();
         const grid = document.getElementById('artigosGrid');
@@ -514,7 +516,7 @@
       document.body.style.overflow = 'hidden';
 
       try {
-        const base = location.pathname.replace(/\/[^/]*$/, '');
+        const base = '/site';
         const res = await fetch(`${base}/artigos/${slug}.md`);
         const text = await res.text();
         // Remove frontmatter (--- ... ---)
