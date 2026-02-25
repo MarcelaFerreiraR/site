@@ -517,11 +517,14 @@
 
       try {
         const base = '/site';
-        const res = await fetch(`${base}/artigos/${encodeURIComponent(slug)}.md`);
-        const text = await res.text();
-        // Remove frontmatter (--- ... ---)
-        const content = text.replace(/^---[\s\S]*?---\n/, '');
-        document.getElementById('readerBody').innerHTML = marked.parse(content);
+        const res = await fetch(`${base}/artigos/index.json`);
+        const articles = await res.json();
+        const article = articles.find(a => a.slug === slug);
+        if(article && article.content) {
+          document.getElementById('readerBody').innerHTML = marked.parse(article.content);
+        } else {
+          document.getElementById('readerBody').innerHTML = '<p>Artigo não encontrado.</p>';
+        }
       } catch(e) {
         document.getElementById('readerBody').innerHTML = '<p>Erro ao carregar o artigo.</p>';
       }
