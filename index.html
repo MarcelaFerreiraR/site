@@ -517,7 +517,7 @@
 
       try {
         const base = '/site';
-        const res = await fetch(`${base}/artigos/${slug}.md`);
+        const res = await fetch(`${base}/artigos/${encodeURIComponent(slug)}.md`);
         const text = await res.text();
         // Remove frontmatter (--- ... ---)
         const content = text.replace(/^---[\s\S]*?---\n/, '');
@@ -556,7 +556,8 @@
       if(v) v.innerHTML = '<span style="font-size:1rem;color:var(--text-dim)">N/D</span>';
     }
     async function loadMacroData() {
-      document.getElementById('updateTime').textContent = new Date().toLocaleString('pt-BR', {dateStyle:'short', timeStyle:'short'});
+      const updateEl = document.getElementById('updateTime');
+      if(updateEl) updateEl.textContent = new Date().toLocaleString('pt-BR', {dateStyle:'short', timeStyle:'short'});
       const configs = [
         { id: 'ipca', series: 13522, unit: '%', label: 'pp vs anterior', invertColor: false },
         { id: 'selic', series: 432, unit: '% a.a.', label: 'pp vs anterior', invertColor: true },
