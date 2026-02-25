@@ -155,6 +155,7 @@
     .macro-loading::after { content: '...'; animation: dots 1.5s infinite; }
     @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60%, 100% { content: '...'; } }
     .dashboard-note { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.05em; padding: 0.8rem 1.2rem; border-left: 2px solid var(--border); margin-top: 1.5rem; }
+    .dashboard-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem; }
 
     /* ARTIGOS */
     .artigos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
@@ -403,19 +404,20 @@
         <div class="section-label" data-pt="03 — Macro Research" data-en="03 — Macro Research">03 — Macro Research</div>
         <h2 class="section-title" style="margin-bottom:0" data-pt="Brasil: Painel Macroeconômico" data-en="Brazil: Macroeconomic Dashboard">Brasil: Painel Macroeconômico</h2>
       </div>
-      <a href="https://dashboard-macro-pl7u7msciewxfkhekdd9xy.streamlit.app/" target="_blank" class="btn-outline" style="font-size:0.72rem;padding:0.5rem 1rem;" data-pt="Abrir em tela cheia" data-en="Open fullscreen">Abrir em tela cheia ↗</a>
+      <div class="dashboard-update"><span data-pt="Última atualização: " data-en="Last update: ">Última atualização: </span><span id="updateTime">—</span></div>
     </div>
-    <div style="margin-top:1.5rem;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#f5f5f0;">
-      <iframe
-        src="https://dashboard-macro-pl7u7msciewxfkhekdd9xy.streamlit.app/?embedded=true"
-        width="100%"
-        height="820"
-        frameborder="0"
-        scrolling="yes"
-        style="display:block;"
-      ></iframe>
+    <div class="dashboard-grid">
+      <div class="macro-card"><div class="macro-indicator" data-pt="IBC-Br — Atividade Econômica" data-en="IBC-Br — Economic Activity">IBC-Br — Atividade Econômica</div><div class="macro-value" id="ibcbr-val"><span class="macro-loading">Carregando</span></div><div class="macro-change" id="ibcbr-change"></div><div class="macro-period" id="ibcbr-period"></div></div>
+      <div class="macro-card"><div class="macro-indicator" data-pt="IPCA — Acumulado 12m" data-en="IPCA — 12-month Accumulated">IPCA — Acumulado 12m</div><div class="macro-value" id="ipca-val"><span class="macro-loading">Carregando</span></div><div class="macro-change" id="ipca-change"></div><div class="macro-period" id="ipca-period"></div></div>
+      <div class="macro-card"><div class="macro-indicator" data-pt="Taxa Selic — Meta" data-en="Selic Rate — Target">Taxa Selic — Meta</div><div class="macro-value" id="selic-val"><span class="macro-loading">Carregando</span></div><div class="macro-change" id="selic-change"></div><div class="macro-period" id="selic-period"></div></div>
+      <div class="macro-card"><div class="macro-indicator" data-pt="Câmbio USD/BRL" data-en="Exchange Rate USD/BRL">Câmbio USD/BRL</div><div class="macro-value" id="cambio-val"><span class="macro-loading">Carregando</span></div><div class="macro-change" id="cambio-change"></div><div class="macro-period" id="cambio-period"></div></div>
+      <div class="macro-card"><div class="macro-indicator" data-pt="Desemprego — PNAD" data-en="Unemployment — PNAD">Desemprego — PNAD</div><div class="macro-value" id="desemprego-val"><span class="macro-loading">Carregando</span></div><div class="macro-change" id="desemprego-change"></div><div class="macro-period" id="desemprego-period"></div></div>
+      <div class="macro-card"><div class="macro-indicator" data-pt="Dívida Líquida — % PIB" data-en="Net Debt — % GDP">Dívida Líquida — % PIB</div><div class="macro-value" id="divida-val"><span class="macro-loading">Carregando</span></div><div class="macro-change" id="divida-change"></div><div class="macro-period" id="divida-period"></div></div>
     </div>
-    <div class="dashboard-note" style="margin-top:1rem;" data-pt="Dados obtidos via API pública do Banco Central do Brasil (BCB/SGS). Atualizados automaticamente a cada acesso." data-en="Data obtained via the Brazilian Central Bank (BCB/SGS) public API. Automatically updated on each access.">Dados obtidos via API pública do Banco Central do Brasil (BCB/SGS). Atualizados automaticamente a cada acesso.</div>
+    <div class="dashboard-footer">
+      <div class="dashboard-note" data-pt="Dados obtidos via API pública do Banco Central do Brasil (BCB/SGS). Atualizados automaticamente a cada acesso." data-en="Data obtained via the Brazilian Central Bank (BCB/SGS) public API. Automatically updated on each access.">Dados obtidos via API pública do Banco Central do Brasil (BCB/SGS). Atualizados automaticamente a cada acesso.</div>
+      <a href="https://dashboard-macro-pl7u7msciewxfkhekdd9xy.streamlit.app/" target="_blank" class="btn-outline" data-pt="Ver análise completa →" data-en="Full analysis →">Ver análise completa →</a>
+    </div>
   </section>
 
   <!-- ARTIGOS -->
@@ -562,12 +564,12 @@
       const updateEl = document.getElementById('updateTime');
       if(updateEl) updateEl.textContent = new Date().toLocaleString('pt-BR', {dateStyle:'short', timeStyle:'short'});
       const configs = [
-        { id: 'ipca', series: 13522, unit: '%', label: 'pp vs anterior', invertColor: false },
-        { id: 'selic', series: 432, unit: '% a.a.', label: 'pp vs anterior', invertColor: true },
-        { id: 'cambio', series: 10813, unit: 'BRL', label: 'R$ vs anterior', invertColor: true, decimals: 4 },
-        { id: 'desemprego', series: 24369, unit: '%', label: 'pp vs anterior', invertColor: true },
-        { id: 'igpm', series: 189, unit: '%', label: 'pp vs anterior', invertColor: false },
-        { id: 'pib', series: 7326, unit: '%', label: 'Variação anual', invertColor: false },
+        { id: 'ibcbr',     series: 24363, unit: 'índice', label: 'vs anterior',    invertColor: false },
+        { id: 'ipca',      series: 13522, unit: '%',      label: 'pp vs anterior', invertColor: false },
+        { id: 'selic',     series: 432,   unit: '% a.a.', label: 'pp vs anterior', invertColor: true  },
+        { id: 'cambio',    series: 10813, unit: 'BRL',    label: 'R$ vs anterior', invertColor: true, decimals: 4 },
+        { id: 'desemprego',series: 24369, unit: '%',      label: 'pp vs anterior', invertColor: true  },
+        { id: 'divida',    series: 4536,  unit: '% PIB',  label: 'pp vs anterior', invertColor: true  },
       ];
       for(const cfg of configs) {
         const data = await fetchBACEN(cfg.series);
