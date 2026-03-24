@@ -138,7 +138,7 @@ st.markdown("<hr>", unsafe_allow_html=True)
 cards_config = [
     ("IBC-Br",     "IBC-Br — Atividade Econômica",  "índice"),
     ("IPCA",       "IPCA — Acumulado 12m",           "%"),
-    ("Selic",      "Taxa Selic — Meta",              "% a.a."),
+    ("Selic",      "Taxa Selic — Selic acumulada no mês anualizada base 252",              "% a.a."),
     ("Dólar",      "Câmbio USD/BRL",                 "R$"),
     ("Desemprego", "Desemprego — PNAD",              "%"),
     ("Dívida",     "Dívida Líquida",                 "% PIB"),
