@@ -119,7 +119,7 @@ st.markdown("""
 # ── FILTRO
 col1, col2, _ = st.columns([1,1,2])
 with col1: ano_ini = st.slider("De", 2000, 2023, 2010)
-with col2: ano_fim = st.slider("Até", 2001, 2025, 2025)
+with col2: ano_fim = st.slider("Até", 2001, 2026, 2026)
 
 if ano_ini >= ano_fim:
     st.warning("Ano inicial deve ser menor que o ano final.")
