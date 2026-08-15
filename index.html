@@ -445,7 +445,7 @@
         </div>
       </div>
       <div>
-        <form class="contato-form" onsubmit="handleForm(event)">
+        <<form class="contato-form" action="https://formspree.io/f/mbgrkezl" method="POST">
           <div class="form-group"><label data-pt="Nome" data-en="Name">Nome</label><input type="text" placeholder="Seu nome" required></div>
           <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
           <div class="form-group"><label data-pt="Mensagem" data-en="Message">Mensagem</label><textarea placeholder="Sua mensagem..." required></textarea></div>
@@ -592,13 +592,10 @@
     }
 
     // ===== FORM =====
-    function handleForm(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.textContent = lang === 'pt' ? 'Mensagem enviada ✓' : 'Message sent ✓';
-      btn.style.background = 'var(--emerald-light)';
-      setTimeout(() => { btn.textContent = lang === 'pt' ? 'Enviar mensagem' : 'Send message'; btn.style.background = ''; e.target.reset(); }, 3000);
-    }
+   function handleForm(e) {
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Enviando...';
+}
 
     // INIT
     loadArticles();
