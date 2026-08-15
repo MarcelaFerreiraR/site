@@ -592,9 +592,42 @@
     }
 
     // ===== FORM =====
-   function handleForm(e) {
+  async function handleForm(e) {
+  e.preventDefault(); // 1. Para o envio padrão do navegador
+
   const btn = e.target.querySelector('button');
+  const originalText = btn.textContent;
   btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  // 2. Captura os dados digitados nos campos
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    // 3. Envia os dados convertidos em JSON para o link do seu action
+    const response = await fetch(e.target.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Resolve o erro informando que é JSON
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data) // Transforma os dados em objeto JSON válido
+    });
+
+    if (response.ok) {
+      alert('Mensagem enviada com sucesso!');
+      e.target.reset(); // Limpa os campos do formulário
+    } else {
+      alert('Erro ao enviar os dados para o servidor.');
+    }
+  } catch (error) {
+    alert('Erro de conexão. Verifique sua internet.');
+  } finally {
+    // 4. Restaura o botão ao estado original
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
 }
 
     // INIT
