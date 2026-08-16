@@ -6,251 +6,197 @@
   <title>Marcela Rocha | Economista & Cientista de Dados</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Marked.js para renderizar Markdown -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
   <style>
     :root {
-      --emerald: #1a6b4a;
-      --emerald-light: #2d9b6e;
-      --emerald-pale: #e8f5ef;
-      --emerald-dim: rgba(26, 107, 74, 0.08);
-      --dark: #ffffff;
-      --dark-2: #f7faf8;
-      --mid: #edf5f1;
-      --text: #1a1a1a;
-      --text-muted: #4a5550;
-      --text-dim: #7a9a85;
-      --border: rgba(26, 107, 74, 0.15);
-      --mono: 'DM Mono', monospace;
-      --serif: 'Playfair Display', serif;
-      --sans: 'DM Sans', sans-serif;
+      --emerald:#1a6b4a; --emerald-light:#2d9b6e; --emerald-pale:#e8f5ef;
+      --emerald-dim:rgba(26,107,74,0.08); --dark:#ffffff; --dark-2:#f7faf8;
+      --mid:#edf5f1; --text:#1a1a1a; --text-muted:#4a5550; --text-dim:#7a9a85;
+      --border:rgba(26,107,74,0.15); --mono:'DM Mono',monospace;
+      --serif:'Playfair Display',serif; --sans:'DM Sans',sans-serif;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--dark); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--dark);color:var(--text);font-family:var(--sans);overflow-x:hidden}
 
     /* NAV */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      padding: 1.2rem 4rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { font-family: var(--serif); font-size: 1.4rem; color: var(--emerald); letter-spacing: 0.02em; line-height: 1.1; display: flex; flex-direction: column; }
-    .nav-logo span { color: var(--text-muted); font-style: italic; font-size: 0.7rem; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.15rem; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a {
-      font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted);
-      text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--emerald-light); }
-    .lang-toggle {
-      font-family: var(--mono); font-size: 0.7rem;
-      background: var(--emerald-dim); border: 1px solid var(--border);
-      color: var(--emerald); padding: 0.4rem 0.9rem; border-radius: 2px;
-      cursor: pointer; letter-spacing: 0.1em; transition: all 0.3s;
-    }
-    .lang-toggle:hover { background: var(--emerald); color: white; }
+    nav{position:fixed;top:0;width:100%;z-index:100;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--emerald);letter-spacing:0.02em;line-height:1.1;display:flex;flex-direction:column}
+    .nav-logo span{color:var(--text-muted);font-style:italic;font-size:0.7rem;font-family:var(--mono);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.15rem}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--mono);font-size:0.75rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s}
+    .nav-links a:hover{color:var(--emerald-light)}
+    .lang-toggle{font-family:var(--mono);font-size:0.7rem;background:var(--emerald-dim);border:1px solid var(--border);color:var(--emerald);padding:0.4rem 0.9rem;border-radius:2px;cursor:pointer;letter-spacing:0.1em;transition:all 0.3s}
+    .lang-toggle:hover{background:var(--emerald);color:white}
 
     /* HERO */
-    .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden;
-    }
-    .hero::after {
-      content: ''; position: absolute; right: -5%; top: 15%; width: 50%; height: 70%;
-      background: radial-gradient(ellipse at center, rgba(26,107,74,0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-tag {
-      font-family: var(--mono); font-size: 0.7rem; color: var(--emerald-light);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-    .hero-tag::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--emerald-light); }
-    .hero h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
-    .hero h1 em { color: var(--emerald-light); font-style: italic; }
-    .hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 480px; margin-bottom: 3rem; font-weight: 300; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.9rem 2rem; background: var(--emerald); color: white; border: none;
-      cursor: pointer; text-decoration: none; transition: all 0.3s;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-    }
-    .btn-primary:hover { background: var(--emerald-light); transform: translateY(-2px); }
-    .btn-outline {
-      font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.9rem 2rem; background: transparent; color: var(--text-muted);
-      border: 1px solid var(--border); cursor: pointer; text-decoration: none; transition: all 0.3s;
-    }
-    .btn-outline:hover { border-color: var(--emerald-light); color: var(--emerald-light); }
-
-    .hero-right { display: flex; justify-content: center; align-items: center; }
-    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .stat-card { background: var(--dark); padding: 2rem; text-align: center; transition: background 0.3s; }
-    .stat-card:hover { background: var(--mid); }
-    .stat-number { font-family: var(--serif); font-size: 2.5rem; color: var(--emerald-light); display: block; }
-    .stat-label { font-family: var(--mono); font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.5rem; display: block; }
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 4rem 4rem;position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;right:-5%;top:15%;width:50%;height:70%;background:radial-gradient(ellipse at center,rgba(26,107,74,0.07) 0%,transparent 70%);pointer-events:none}
+    .hero-tag{font-family:var(--mono);font-size:0.7rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem}
+    .hero-tag::before{content:'';display:block;width:2rem;height:1px;background:var(--emerald-light)}
+    .hero h1{font-family:var(--serif);font-size:clamp(3rem,5vw,4.5rem);line-height:1.1;margin-bottom:1.5rem}
+    .hero h1 em{color:var(--emerald-light);font-style:italic}
+    .hero-desc{font-size:1rem;color:var(--text-muted);line-height:1.8;max-width:480px;margin-bottom:3rem;font-weight:300}
+    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn-primary{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:var(--emerald);color:white;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));display:inline-block}
+    .btn-primary:hover{background:var(--emerald-light);transform:translateY(-2px)}
+    .btn-outline{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:transparent;color:var(--text-muted);border:1px solid var(--border);cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-block}
+    .btn-outline:hover{border-color:var(--emerald-light);color:var(--emerald-light)}
+    .hero-right{display:flex;justify-content:center;align-items:center}
+    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+    .stat-card{background:var(--dark);padding:2rem;text-align:center;transition:background 0.3s}
+    .stat-card:hover{background:var(--mid)}
+    .stat-number{font-family:var(--serif);font-size:2.5rem;color:var(--emerald-light);display:block}
+    .stat-label{font-family:var(--mono);font-size:0.65rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;display:block}
 
     /* SECTIONS */
-    section { padding: 6rem 4rem; position: relative; }
-    .section-label {
-      font-family: var(--mono); font-size: 0.65rem; color: var(--emerald-light);
-      letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .section-label::after { content: ''; flex: 1; max-width: 4rem; height: 1px; background: var(--emerald-light); opacity: 0.5; }
-    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); margin-bottom: 3rem; }
+    section{padding:6rem 4rem;position:relative}
+    .section-label{font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+    .section-label::after{content:'';flex:1;max-width:4rem;height:1px;background:var(--emerald-light);opacity:0.5}
+    .section-title{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);margin-bottom:3rem}
+    .dashboard-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
 
     /* SOBRE */
-    #sobre { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .sobre-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
-    .sobre-sidebar { position: sticky; top: 8rem; }
-    .sobre-sidebar p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 2rem; font-weight: 300; }
-    .skills-list { display: flex; flex-direction: column; gap: 0.6rem; }
-    .skill-item {
-      font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim);
-      padding: 0.5rem 0.8rem; border-left: 2px solid var(--border); letter-spacing: 0.05em; transition: all 0.3s;
-    }
-    .skill-item:hover { border-color: var(--emerald-light); color: var(--emerald); background: var(--emerald-dim); }
-    .sobre-main p { font-size: 1rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; font-weight: 300; }
-    .sobre-main p strong { color: var(--text); font-weight: 500; }
+    #sobre{background:var(--dark-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .sobre-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+    .sobre-sidebar{position:sticky;top:8rem}
+    .sobre-sidebar p{font-size:0.85rem;color:var(--text-muted);line-height:1.9;margin-bottom:2rem;font-weight:300}
+    .skills-list{display:flex;flex-direction:column;gap:0.6rem}
+    .skill-item{font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);padding:0.5rem 0.8rem;border-left:2px solid var(--border);letter-spacing:0.05em;transition:all 0.3s}
+    .skill-item:hover{border-color:var(--emerald-light);color:var(--emerald);background:var(--emerald-dim)}
+    .sobre-main p{font-size:1rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.5rem;font-weight:300}
+    .sobre-main p strong{color:var(--text);font-weight:500}
 
     /* PROJETOS */
-    .projetos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .projeto-card { background: var(--dark); padding: 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
-    .projeto-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--emerald-light); transition: height 0.4s ease; }
-    .projeto-card:hover { background: var(--dark-2); }
-    .projeto-card:hover::before { height: 100%; }
-    .projeto-tag { font-family: var(--mono); font-size: 0.62rem; color: var(--emerald-light); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.8; }
-    .projeto-card h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--text); margin-bottom: 0.8rem; line-height: 1.3; }
-    .projeto-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
-    .projeto-links { display: flex; gap: 1rem; }
-    .projeto-link { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all 0.3s; }
-    .projeto-link:hover { color: var(--emerald-light); border-color: var(--emerald-light); }
+    .projetos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+    .projeto-card{background:var(--dark);padding:2.5rem;transition:background 0.3s;position:relative;overflow:hidden}
+    .projeto-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--emerald-light);transition:height 0.4s ease}
+    .projeto-card:hover{background:var(--dark-2)}
+    .projeto-card:hover::before{height:100%}
+    .projeto-tag{font-family:var(--mono);font-size:0.62rem;color:var(--emerald-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;opacity:0.8}
+    .projeto-card h3{font-family:var(--serif);font-size:1.3rem;color:var(--text);margin-bottom:0.8rem;line-height:1.3}
+    .projeto-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.7;font-weight:300;margin-bottom:1.5rem}
+    .projeto-links{display:flex;gap:1rem}
+    .projeto-link{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:2px;transition:all 0.3s}
+    .projeto-link:hover{color:var(--emerald-light);border-color:var(--emerald-light)}
 
-    /* DASHBOARD */
-    #macro { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .dashboard-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-    .dashboard-update { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.08em; }
-    .dashboard-update span { color: var(--emerald-light); }
-    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 2rem; }
-    .macro-card { background: var(--dark); padding: 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
-    .macro-card:hover { background: var(--mid); }
-    .macro-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--emerald), transparent); opacity: 0; transition: opacity 0.3s; }
-    .macro-card:hover::after { opacity: 1; }
-    .macro-indicator { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
-    .macro-value { font-family: var(--serif); font-size: 2.2rem; color: var(--text); line-height: 1; margin-bottom: 0.5rem; }
-    .macro-value .unit { font-size: 1rem; color: var(--text-dim); font-family: var(--mono); }
-    .macro-change { font-family: var(--mono); font-size: 0.7rem; margin-bottom: 0.4rem; }
-    .macro-change.positive { color: #1a7a52; }
-    .macro-change.negative { color: #c0392b; }
-    .macro-change.neutral { color: var(--text-dim); }
-    .macro-period { font-family: var(--mono); font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.08em; }
-    .macro-loading { font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); }
-    .macro-loading::after { content: '...'; animation: dots 1.5s infinite; }
-    @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60%, 100% { content: '...'; } }
-    .dashboard-note { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.05em; padding: 0.8rem 1.2rem; border-left: 2px solid var(--border); margin-top: 1.5rem; }
-    .dashboard-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    /* MACRO */
+    #macro{background:var(--dark-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .dashboard-update{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.08em}
+    .dashboard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
+    .macro-card{background:var(--dark);padding:2rem;position:relative;overflow:hidden;transition:background 0.3s}
+    .macro-card:hover{background:var(--mid)}
+    .macro-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),transparent);opacity:0;transition:opacity 0.3s}
+    .macro-card:hover::after{opacity:1}
+    .macro-indicator{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
+    .macro-value{font-family:var(--serif);font-size:2.2rem;color:var(--text);line-height:1;margin-bottom:0.5rem}
+    .macro-value .unit{font-size:1rem;color:var(--text-dim);font-family:var(--mono)}
+    .macro-change{font-family:var(--mono);font-size:0.7rem;margin-bottom:0.4rem}
+    .macro-change.positive{color:#1a7a52}
+    .macro-change.negative{color:#c0392b}
+    .macro-change.neutral{color:var(--text-dim)}
+    .macro-period{font-family:var(--mono);font-size:0.6rem;color:var(--text-dim);letter-spacing:0.08em}
+    .macro-loading{font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)}
+    .macro-loading::after{content:'...';animation:dots 1.5s infinite}
+    @keyframes dots{0%,20%{content:'.'}40%{content:'..'}60%,100%{content:'...'}}
+    .dashboard-note{font-family:var(--mono);font-size:0.62rem;color:var(--text-dim);letter-spacing:0.05em;padding:0.8rem 1.2rem;border-left:2px solid var(--border)}
+    .dashboard-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;flex-wrap:wrap;gap:1rem}
 
     /* ARTIGOS */
-    .artigos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .artigo-card { background: var(--dark); padding: 2.5rem; transition: background 0.3s; cursor: pointer; }
-    .artigo-card:hover { background: var(--dark-2); }
-    .artigo-meta { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-    .artigo-tag { color: var(--emerald-light); }
-    .artigo-card h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--text); line-height: 1.4; margin-bottom: 0.8rem; }
-    .artigo-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
-    .artigo-read-link { display: inline-block; margin-top: 1.2rem; font-family: var(--mono); font-size: 0.65rem; color: var(--emerald-light); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all 0.3s; }
-    .artigo-read-link:hover { border-color: var(--emerald-light); }
+    .artigos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+    .artigo-card{background:var(--dark);padding:2.5rem;transition:background 0.3s;cursor:pointer}
+    .artigo-card:hover{background:var(--dark-2)}
+    .artigo-meta{font-family:var(--mono);font-size:0.62rem;color:var(--text-dim);letter-spacing:0.1em;margin-bottom:1rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .artigo-tag{color:var(--emerald-light)}
+    .artigo-card h3{font-family:var(--serif);font-size:1.2rem;color:var(--text);line-height:1.4;margin-bottom:0.8rem}
+    .artigo-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.7;font-weight:300}
+    .artigo-read-link{display:inline-block;margin-top:1.2rem;font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:2px;transition:all 0.3s}
+    .artigo-read-link:hover{border-color:var(--emerald-light)}
 
     /* ARTICLE READER */
-    .article-reader {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: white; overflow-y: auto;
-    }
-    .article-reader.active { display: block; }
-    .reader-nav {
-      position: sticky; top: 0; background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-      padding: 1rem 4rem; display: flex; align-items: center; gap: 2rem; z-index: 10;
-    }
-    .reader-back {
-      font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted);
-      cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; background: none; border: none;
-    }
-    .reader-back:hover { color: var(--emerald); }
-    .reader-breadcrumb { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.08em; }
-    .reader-content { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 8rem; }
-    .reader-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .reader-tag { font-family: var(--mono); font-size: 0.65rem; color: var(--emerald-light); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
-    .reader-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 1rem; }
-    .reader-meta { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.1em; display: flex; gap: 1.5rem; }
+    .article-reader{display:none;position:fixed;inset:0;z-index:200;background:white;overflow-y:auto}
+    .article-reader.active{display:block}
+    .reader-nav{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1rem 4rem;display:flex;align-items:center;gap:2rem;z-index:10}
+    .reader-back{font-family:var(--mono);font-size:0.72rem;color:var(--text-muted);cursor:pointer;letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;background:none;border:none}
+    .reader-back:hover{color:var(--emerald)}
+    .reader-breadcrumb{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.08em}
+    .reader-content{max-width:720px;margin:0 auto;padding:4rem 2rem 8rem}
+    .reader-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+    .reader-tag{font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem}
+    .reader-title{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;margin-bottom:1rem}
+    .reader-meta{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.1em;display:flex;gap:1.5rem}
+    .reader-body{font-size:1.05rem;line-height:1.85;color:var(--text-muted)}
+    .reader-body h2{font-family:var(--serif);font-size:1.6rem;color:var(--text);margin:2.5rem 0 1rem}
+    .reader-body h3{font-family:var(--serif);font-size:1.25rem;color:var(--text);margin:2rem 0 0.8rem}
+    .reader-body p{margin-bottom:1.3rem}
+    .reader-body strong{color:var(--text);font-weight:600}
+    .reader-body blockquote{border-left:3px solid var(--emerald-light);padding:1rem 1.5rem;background:var(--emerald-dim);margin:1.5rem 0;font-style:italic;color:var(--text)}
+    .reader-body code{font-family:var(--mono);font-size:0.82rem;background:var(--mid);padding:0.15rem 0.4rem;border-radius:2px;color:var(--emerald)}
+    .reader-body pre{background:#f0f7f4;border:1px solid var(--border);padding:1.5rem;overflow-x:auto;margin:1.5rem 0;border-radius:2px}
+    .reader-body pre code{background:none;padding:0;color:var(--text);font-size:0.82rem}
+    .reader-body ul,.reader-body ol{padding-left:1.5rem;margin-bottom:1.3rem}
+    .reader-body li{margin-bottom:0.4rem}
+    .reader-body table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+    .reader-body th{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--mid);padding:0.8rem 1rem;border:1px solid var(--border);color:var(--text);text-align:left}
+    .reader-body td{padding:0.8rem 1rem;border:1px solid var(--border);color:var(--text-muted)}
+    .reader-body a{color:var(--emerald);text-decoration:underline}
+    .reader-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 
-    /* Markdown content styles */
-    .reader-body { font-size: 1.05rem; line-height: 1.85; color: var(--text-muted); }
-    .reader-body h2 { font-family: var(--serif); font-size: 1.6rem; color: var(--text); margin: 2.5rem 0 1rem; }
-    .reader-body h3 { font-family: var(--serif); font-size: 1.25rem; color: var(--text); margin: 2rem 0 0.8rem; }
-    .reader-body p { margin-bottom: 1.3rem; }
-    .reader-body strong { color: var(--text); font-weight: 600; }
-    .reader-body em { font-style: italic; }
-    .reader-body blockquote { border-left: 3px solid var(--emerald-light); padding: 1rem 1.5rem; background: var(--emerald-dim); margin: 1.5rem 0; font-style: italic; color: var(--text); }
-    .reader-body code { font-family: var(--mono); font-size: 0.82rem; background: var(--mid); padding: 0.15rem 0.4rem; border-radius: 2px; color: var(--emerald); }
-    .reader-body pre { background: #f0f7f4; border: 1px solid var(--border); padding: 1.5rem; overflow-x: auto; margin: 1.5rem 0; border-radius: 2px; }
-    .reader-body pre code { background: none; padding: 0; color: var(--text); font-size: 0.82rem; }
-    .reader-body ul, .reader-body ol { padding-left: 1.5rem; margin-bottom: 1.3rem; }
-    .reader-body li { margin-bottom: 0.4rem; }
-    .reader-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
-    .reader-body th { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--mid); padding: 0.8rem 1rem; border: 1px solid var(--border); color: var(--text); text-align: left; }
-    .reader-body td { padding: 0.8rem 1rem; border: 1px solid var(--border); color: var(--text-muted); }
-    .reader-body a { color: var(--emerald); text-decoration: underline; }
-    .reader-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    /* SERVIÇOS */
+    #servicos{background:var(--dark);border-top:1px solid var(--border)}
+    .servicos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:3rem}
+    .servico-card{background:var(--dark);padding:2.5rem;transition:background 0.3s;position:relative;overflow:hidden}
+    .servico-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),transparent);opacity:0;transition:opacity 0.3s}
+    .servico-card:hover{background:var(--mid)}
+    .servico-card:hover::before{opacity:1}
+    .servico-icone{font-size:1.8rem;margin-bottom:1.2rem;display:block}
+    .servico-card h3{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:0.6rem}
+    .servico-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.7;font-weight:300;margin-bottom:0.8rem}
+    .servico-publico{font-family:var(--mono);font-size:0.6rem;color:var(--emerald-light);letter-spacing:0.12em;text-transform:uppercase}
+    .servicos-cta{text-align:center;padding:2rem 0}
+    .servicos-cta p{font-size:0.9rem;color:var(--text-muted);margin-bottom:1.5rem;font-weight:300}
 
     /* CONTATO */
-    #contato { background: var(--dark-2); border-top: 1px solid var(--border); }
-    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .contato-info h2 { font-family: var(--serif); font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
-    .contato-info h2 em { color: var(--emerald-light); font-style: italic; }
-    .contato-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; font-weight: 300; margin-bottom: 2.5rem; }
-    .social-links { display: flex; flex-direction: column; gap: 0.8rem; }
-    .social-link { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 1rem; transition: all 0.3s; padding: 0.8rem 1.2rem; border: 1px solid transparent; }
-    .social-link:hover { color: var(--emerald-light); border-color: var(--border); background: var(--emerald-dim); }
-    .contato-form { display: flex; flex-direction: column; gap: 1.2rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-    .form-group label { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; }
-    .form-group input, .form-group textarea { background: var(--dark); border: 1px solid var(--border); color: var(--text); padding: 0.9rem 1.1rem; font-family: var(--sans); font-size: 0.85rem; outline: none; transition: border-color 0.3s; resize: none; }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--emerald-light); }
-    .form-group textarea { min-height: 120px; }
+    #contato{background:var(--dark-2);border-top:1px solid var(--border)}
+    .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .contato-info h2{font-family:var(--serif);font-size:2.5rem;margin-bottom:1.5rem;line-height:1.2}
+    .contato-info h2 em{color:var(--emerald-light);font-style:italic}
+    .contato-info p{font-size:0.9rem;color:var(--text-muted);line-height:1.8;font-weight:300;margin-bottom:2.5rem}
+    .social-links{display:flex;flex-direction:column;gap:0.8rem}
+    .social-link{font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;display:flex;align-items:center;gap:1rem;transition:all 0.3s;padding:0.8rem 1.2rem;border:1px solid transparent}
+    .social-link:hover{color:var(--emerald-light);border-color:var(--border);background:var(--emerald-dim)}
+    .contato-form{display:flex;flex-direction:column;gap:1.2rem}
+    .form-group{display:flex;flex-direction:column;gap:0.5rem}
+    .form-group label{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;text-transform:uppercase}
+    .form-group input,.form-group textarea,.form-group select{background:var(--dark);border:1px solid var(--border);color:var(--text);padding:0.9rem 1.1rem;font-family:var(--sans);font-size:0.85rem;outline:none;transition:border-color 0.3s;resize:none;width:100%}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--emerald-light)}
+    .form-group textarea{min-height:120px}
+    .form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a9a85' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
 
     /* FOOTER */
-    footer { padding: 2rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    footer p { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.08em; }
-    footer a { color: var(--emerald-light); text-decoration: none; }
+    footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer p{font-family:var(--mono);font-size:0.62rem;color:var(--text-dim);letter-spacing:0.08em}
+    footer a{color:var(--emerald-light);text-decoration:none}
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .hero > * { animation: fadeUp 0.8s ease forwards; }
-    .hero-right { animation-delay: 0.2s; }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .hero>*{animation:fadeUp 0.8s ease forwards}
+    .hero-right{animation-delay:0.2s}
 
-    @media (max-width: 900px) {
-      nav { padding: 1rem 2rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 6rem 2rem 4rem; }
-      .hero-right { display: none; }
-      section { padding: 4rem 2rem; }
-      .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
-      footer { padding: 2rem; }
-      .reader-nav { padding: 1rem 2rem; }
+    @media(max-width:900px){
+      nav{padding:1rem 2rem}
+      .nav-links{display:none}
+      .hero{grid-template-columns:1fr;padding:6rem 2rem 4rem}
+      .hero-right{display:none}
+      section{padding:4rem 2rem}
+      .sobre-grid,.contato-grid{grid-template-columns:1fr;gap:3rem}
+      footer{padding:2rem}
+      .reader-nav{padding:1rem 2rem}
     }
   </style>
 </head>
 <body>
 
-  <!-- ARTICLE READER (overlay) -->
+  <!-- ARTICLE READER -->
   <div class="article-reader" id="articleReader">
     <div class="reader-nav">
       <button class="reader-back" onclick="closeArticle()">← <span data-pt="Voltar" data-en="Back">Voltar</span></button>
@@ -274,6 +220,7 @@
       <li><a href="#projetos" data-pt="Projetos" data-en="Projects">Projetos</a></li>
       <li><a href="#macro" data-pt="Macro Research" data-en="Macro Research">Macro Research</a></li>
       <li><a href="#artigos" data-pt="Artigos" data-en="Articles">Artigos</a></li>
+      <li><a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a></li>
       <li><a href="#contato" data-pt="Contato" data-en="Contact">Contato</a></li>
     </ul>
     <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
@@ -287,7 +234,7 @@
       <p class="hero-desc" data-pt="Unindo teoria econômica e ciência de dados para transformar informações complexas em insights acionáveis sobre a conjuntura brasileira e global." data-en="Combining economic theory and data science to turn complex information into actionable insights about the Brazilian and global economic landscape.">Unindo teoria econômica e ciência de dados para transformar informações complexas em insights acionáveis sobre a conjuntura brasileira e global.</p>
       <div class="hero-cta">
         <a href="#projetos" class="btn-primary" data-pt="Ver Projetos" data-en="View Projects">Ver Projetos</a>
-        <a href="#macro" class="btn-outline" data-pt="Dashboard Macro" data-en="Macro Dashboard">Dashboard Macro</a>
+        <a href="#servicos" class="btn-outline" data-pt="Meus Serviços" data-en="My Services">Meus Serviços</a>
       </div>
     </div>
     <div class="hero-right">
@@ -295,7 +242,7 @@
         <div class="stat-card"><span class="stat-number">+5</span><span class="stat-label" data-pt="Anos de exp." data-en="Years exp.">Anos de exp.</span></div>
         <div class="stat-card"><span class="stat-number">6</span><span class="stat-label" data-pt="Projetos" data-en="Projects">Projetos</span></div>
         <div class="stat-card"><span class="stat-number">2</span><span class="stat-label" data-pt="Artigos" data-en="Articles">Artigos</span></div>
-        <div class="stat-card"><span class="stat-number">∞</span><span class="stat-label" data-pt="Curiosidade" data-en="Curiosity">Curiosidade</span></div>
+        <div class="stat-card"><span class="stat-number">∞</span><span class="stat-label" data-pt="Amor por economia" data-en="Love for economics">Amor por economia</span></div>
       </div>
     </div>
   </section>
@@ -333,71 +280,46 @@
       <h2 class="section-title" style="margin-bottom:0" data-pt="Projetos de Dados" data-en="Data Projects">Projetos de Dados</h2>
     </div>
     <div class="projetos-grid">
-
-      <!-- COPOM Sentiment -->
       <div class="projeto-card">
         <div class="projeto-tag">NLP · R · Banco Central</div>
         <h3 data-pt="Análise de Sentimentos COPOM" data-en="COPOM Sentiment Analysis">Análise de Sentimentos COPOM</h3>
-        <p data-pt="Pipeline em R que extrai as atas do COPOM diretamente do Banco Central do Brasil, aplica o léxico Loughran-McDonald e computa net sentiment score para cada reunião — mapeando o tom do BCB ao longo do ciclo monetário." data-en="R-based pipeline that fetches official COPOM PDFs from the Central Bank of Brazil, applies the Loughran-McDonald lexicon and computes net sentiment scores per meeting — mapping the BCB tone throughout the monetary cycle.">Pipeline em R que extrai as atas do COPOM diretamente do Banco Central, aplica o léxico Loughran-McDonald e computa net sentiment score para cada reunião — mapeando o tom do BCB ao longo do ciclo monetário.</p>
-        <div class="projeto-links">
-          <a href="https://github.com/MarcelaFerreiraR/AnaliseSentimentos" target="_blank" class="projeto-link">GitHub →</a>
-        </div>
+        <p data-pt="Pipeline em R que extrai as atas do COPOM diretamente do Banco Central, aplica o léxico Loughran-McDonald e computa net sentiment score para cada reunião." data-en="R-based pipeline that fetches official COPOM PDFs from the Central Bank, applies the Loughran-McDonald lexicon and computes net sentiment scores per meeting.">Pipeline em R que extrai as atas do COPOM diretamente do Banco Central, aplica o léxico Loughran-McDonald e computa net sentiment score para cada reunião.</p>
+        <div class="projeto-links"><a href="https://github.com/MarcelaFerreiraR/AnaliseSentimentos" target="_blank" class="projeto-link">GitHub →</a></div>
       </div>
-
-      <!-- Brazil Telecom -->
       <div class="projeto-card">
         <div class="projeto-tag">Market Analysis · R · ANATEL</div>
         <h3 data-pt="Análise de Mercado Telecom BR" data-en="Brazil Telecom Market Analysis">Análise de Mercado Telecom BR</h3>
-        <p data-pt="Projeto em R que avalia a presença de operadoras no mercado de telecomunicações brasileiro, identifica lacunas de serviço e oportunidades de expansão a partir de dados da ANATEL." data-en="R-based project evaluating telecom market presence in Brazil, identifying service gaps and expansion opportunities by analyzing data from ANATEL.">Projeto em R que avalia a presença de operadoras no mercado de telecomunicações brasileiro, identificando lacunas de serviço e oportunidades de expansão a partir de dados da ANATEL.</p>
-        <div class="projeto-links">
-          <a href="https://github.com/MarcelaFerreiraR/Brazil-Telecom-Analysis" target="_blank" class="projeto-link">GitHub →</a>
-        </div>
+        <p data-pt="Projeto em R que avalia a presença de operadoras no mercado de telecomunicações brasileiro, identificando lacunas de serviço e oportunidades de expansão a partir de dados da ANATEL." data-en="R-based project evaluating telecom market presence in Brazil, identifying service gaps and expansion opportunities by analyzing data from ANATEL.">Projeto em R que avalia a presença de operadoras no mercado de telecomunicações brasileiro, identificando lacunas de serviço e oportunidades de expansão a partir de dados da ANATEL.</p>
+        <div class="projeto-links"><a href="https://github.com/MarcelaFerreiraR/Brazil-Telecom-Analysis" target="_blank" class="projeto-link">GitHub →</a></div>
       </div>
-
-      <!-- Stock Analysis -->
       <div class="projeto-card">
         <div class="projeto-tag">Finance · Python · B3</div>
         <h3 data-pt="Análise do Mercado de Ações BR" data-en="Brazilian Stock Market Analysis">Análise do Mercado de Ações BR</h3>
         <p data-pt="Dashboard Python que extrai dados da B3 via TradingView e Yahoo Finance, com análise de pair trading, cálculo de beta e correlação entre ativos." data-en="Python dashboard that extracts B3 stock data from TradingView and Yahoo Finance, featuring pair trading analysis, beta calculation and asset correlation.">Dashboard Python que extrai dados da B3 via TradingView e Yahoo Finance, com análise de pair trading, cálculo de beta e correlação entre ativos.</p>
-        <div class="projeto-links">
-          <a href="https://github.com/MarcelaFerreiraR/brazilian-stock-analysis" target="_blank" class="projeto-link">GitHub →</a>
-        </div>
+        <div class="projeto-links"><a href="https://github.com/MarcelaFerreiraR/brazilian-stock-analysis" target="_blank" class="projeto-link">GitHub →</a></div>
       </div>
-
-      <!-- Assistente IA -->
       <div class="projeto-card">
         <div class="projeto-tag">IA · RAG · LangChain</div>
         <h3 data-pt="Assistente Acadêmico com IA" data-en="Academic AI Assistant">Assistente Acadêmico com IA</h3>
-        <p data-pt="Assistente inteligente que utiliza Retrieval-Augmented Generation (RAG) para responder perguntas sobre PDFs acadêmicos, powered by Google Gemini e LangChain." data-en="Intelligent assistant using Retrieval-Augmented Generation (RAG) to answer questions about academic PDFs, powered by Google Gemini and LangChain.">Assistente inteligente que utiliza Retrieval-Augmented Generation (RAG) para responder perguntas sobre PDFs acadêmicos, powered by Google Gemini e LangChain.</p>
-        <div class="projeto-links">
-          <a href="https://github.com/MarcelaFerreiraR/Assistente_Academico_Gemini" target="_blank" class="projeto-link">GitHub →</a>
-        </div>
+        <p data-pt="Assistente inteligente que utiliza RAG para responder perguntas sobre PDFs acadêmicos, powered by Google Gemini e LangChain." data-en="Intelligent assistant using RAG to answer questions about academic PDFs, powered by Google Gemini and LangChain.">Assistente inteligente que utiliza RAG para responder perguntas sobre PDFs acadêmicos, powered by Google Gemini e LangChain.</p>
+        <div class="projeto-links"><a href="https://github.com/MarcelaFerreiraR/Assistente_Academico_Gemini" target="_blank" class="projeto-link">GitHub →</a></div>
       </div>
-
-      <!-- IBC-Br / Macro dashboard -->
       <div class="projeto-card">
         <div class="projeto-tag">Macro · Python · BACEN API</div>
         <h3 data-pt="Monitor Macroeconômico BR" data-en="BR Macroeconomic Monitor">Monitor Macroeconômico BR</h3>
-        <p data-pt="Dashboard com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central — IPCA, Selic, Câmbio, IBC-Br, Desemprego e mais." data-en="Dashboard with Brazilian macroeconomic indicators automatically updated via Central Bank API — IPCA, Selic, FX, IBC-Br, Unemployment and more.">Dashboard com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central — IPCA, Selic, Câmbio, IBC-Br, Desemprego e mais.</p>
-        <div class="projeto-links">
-          <a href="#macro" class="projeto-link" data-pt="Ver Dashboard →" data-en="View Dashboard →">Ver Dashboard →</a>
-        </div>
+        <p data-pt="Dashboard com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central." data-en="Dashboard with Brazilian macroeconomic indicators automatically updated via Central Bank API.">Dashboard com indicadores macroeconômicos do Brasil atualizados automaticamente via API do Banco Central.</p>
+        <div class="projeto-links"><a href="#macro" class="projeto-link" data-pt="Ver Dashboard →" data-en="View Dashboard →">Ver Dashboard →</a></div>
       </div>
-
-      <!-- Análise Descritiva -->
       <div class="projeto-card">
         <div class="projeto-tag">Python · Estatística · EDA</div>
         <h3 data-pt="Análise Descritiva com Python" data-en="Descriptive Analysis with Python">Análise Descritiva com Python</h3>
-        <p data-pt="Repositório com estudos e notebooks sobre análise de dados, explorando técnicas descritivas, estatísticas e de visualização aplicadas a datasets reais." data-en="Repository with data analysis studies and notebooks, exploring descriptive, statistical and visualization techniques applied to real datasets.">Repositório com estudos e notebooks sobre análise de dados, explorando técnicas descritivas, estatísticas e de visualização aplicadas a datasets reais.</p>
-        <div class="projeto-links">
-          <a href="https://github.com/MarcelaFerreiraR/AnaliseDeDados" target="_blank" class="projeto-link">GitHub →</a>
-        </div>
+        <p data-pt="Repositório com estudos e notebooks sobre análise de dados, explorando técnicas descritivas, estatísticas e de visualização aplicadas a datasets reais." data-en="Repository with data analysis studies and notebooks exploring descriptive, statistical and visualization techniques.">Repositório com estudos e notebooks sobre análise de dados, explorando técnicas descritivas, estatísticas e de visualização aplicadas a datasets reais.</p>
+        <div class="projeto-links"><a href="https://github.com/MarcelaFerreiraR/AnaliseDeDados" target="_blank" class="projeto-link">GitHub →</a></div>
       </div>
-
     </div>
   </section>
 
-  <!-- MACRO DASHBOARD -->
+  <!-- MACRO -->
   <section id="macro">
     <div class="dashboard-header">
       <div>
@@ -416,7 +338,7 @@
     </div>
     <div class="dashboard-footer">
       <div class="dashboard-note" data-pt="Dados obtidos via API pública do Banco Central do Brasil (BCB/SGS). Atualizados automaticamente a cada acesso." data-en="Data obtained via the Brazilian Central Bank (BCB/SGS) public API. Automatically updated on each access.">Dados obtidos via API pública do Banco Central do Brasil (BCB/SGS). Atualizados automaticamente a cada acesso.</div>
-      <a href="https://dashboard-macro.streamlit.app/" target="_blank" class="btn-outline" data-pt="Ver análise completa →" data-en="Full analysis →">Ver análise completa →</a>
+      <a href="https://dashboard-macro-pl7u7msciewxfkhekdd9xy.streamlit.app/" target="_blank" class="btn-outline" data-pt="Ver análise completa →" data-en="Full analysis →">Ver análise completa →</a>
     </div>
   </section>
 
@@ -431,13 +353,69 @@
     </div>
   </section>
 
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="section-label" data-pt="05 — Serviços" data-en="05 — Services">05 — Serviços</div>
+    <div class="dashboard-header">
+      <h2 class="section-title" style="margin-bottom:0" data-pt="Como posso te ajudar" data-en="How I can help you">Como posso te ajudar</h2>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <span class="servico-icone">🧹</span>
+        <h3 data-pt="Tratamento de Dados" data-en="Data Treatment">Tratamento de Dados</h3>
+        <p data-pt="Limpeza, organização e estruturação de bases de dados bagunçadas. Transformo caos em dados confiáveis e prontos para análise." data-en="Cleaning, organizing and structuring messy databases. I turn chaos into reliable, analysis-ready data.">Limpeza, organização e estruturação de bases de dados bagunçadas. Transformo caos em dados confiáveis e prontos para análise.</p>
+        <div class="servico-publico" data-pt="Para: empresas e pessoas com bases desorganizadas" data-en="For: companies and individuals with messy databases">Para: empresas e pessoas com bases desorganizadas</div>
+      </div>
+      <div class="servico-card">
+        <span class="servico-icone">📊</span>
+        <h3 data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
+        <p data-pt="Transformo dados brutos em informações acionáveis. Identifico padrões, tendências e insights que apoiam decisões estratégicas." data-en="I transform raw data into actionable information. I identify patterns, trends and insights that support strategic decisions.">Transformo dados brutos em informações acionáveis. Identifico padrões, tendências e insights que apoiam decisões estratégicas.</p>
+        <div class="servico-publico" data-pt="Para: quem tem dados mas precisa de informação" data-en="For: those who have data but need information">Para: quem tem dados mas precisa de informação</div>
+      </div>
+      <div class="servico-card">
+        <span class="servico-icone">📈</span>
+        <h3 data-pt="Dashboards Power BI" data-en="Power BI Dashboards">Dashboards Power BI</h3>
+        <p data-pt="Criação de dashboards interativos no Power BI para acompanhamento de KPIs e indicadores de negócio em tempo real." data-en="Creation of interactive Power BI dashboards for real-time tracking of KPIs and business indicators.">Criação de dashboards interativos no Power BI para acompanhamento de KPIs e indicadores de negócio em tempo real.</p>
+        <div class="servico-publico" data-pt="Para: empresas que precisam acompanhar indicadores" data-en="For: companies that need to track indicators">Para: empresas que precisam acompanhar indicadores</div>
+      </div>
+      <div class="servico-card">
+        <span class="servico-icone">🗄️</span>
+        <h3 data-pt="Construção de Bases de Dados" data-en="Database Construction">Construção de Bases de Dados</h3>
+        <p data-pt="Coleto, integro e organizo dados de diferentes fontes, criando uma base estruturada e confiável para o seu negócio." data-en="I collect, integrate and organize data from different sources, creating a structured and reliable base for your business.">Coleto, integro e organizo dados de diferentes fontes, criando uma base estruturada e confiável para o seu negócio.</p>
+        <div class="servico-publico" data-pt="Para: quem precisa coletar e organizar dados" data-en="For: those who need to collect and organize data">Para: quem precisa coletar e organizar dados</div>
+      </div>
+      <div class="servico-card">
+        <span class="servico-icone">📐</span>
+        <h3 data-pt="Análise Estatística" data-en="Statistical Analysis">Análise Estatística</h3>
+        <p data-pt="Aplicação de métodos estatísticos para pesquisas, estudos e projetos acadêmicos. Testes de hipóteses, regressões e muito mais." data-en="Application of statistical methods for research, studies and academic projects. Hypothesis testing, regressions and more.">Aplicação de métodos estatísticos para pesquisas, estudos e projetos acadêmicos. Testes de hipóteses, regressões e muito mais.</p>
+        <div class="servico-publico" data-pt="Para: pesquisas, estudos e projetos acadêmicos" data-en="For: research, studies and academic projects">Para: pesquisas, estudos e projetos acadêmicos</div>
+      </div>
+      <div class="servico-card">
+        <span class="servico-icone">📉</span>
+        <h3 data-pt="Análise Econométrica" data-en="Econometric Analysis">Análise Econométrica</h3>
+        <p data-pt="Modelagem econométrica para pesquisas quantitativas e econômicas. VAR, ARIMA, modelos de séries temporais e análise causal." data-en="Econometric modeling for quantitative and economic research. VAR, ARIMA, time series models and causal analysis.">Modelagem econométrica para pesquisas quantitativas e econômicas. VAR, ARIMA, modelos de séries temporais e análise causal.</p>
+        <div class="servico-publico" data-pt="Para: pesquisas econômicas e quantitativas" data-en="For: economic and quantitative research">Para: pesquisas econômicas e quantitativas</div>
+      </div>
+      <div class="servico-card">
+        <span class="servico-icone">⚙️</span>
+        <h3 data-pt="Automação de Tarefas" data-en="Task Automation">Automação de Tarefas</h3>
+        <p data-pt="Automação de processos repetitivos com Python e SQL. Economize tempo eliminando tarefas manuais que podem ser automatizadas." data-en="Automation of repetitive processes with Python and SQL. Save time by eliminating manual tasks that can be automated.">Automação de processos repetitivos com Python e SQL. Economize tempo eliminando tarefas manuais que podem ser automatizadas.</p>
+        <div class="servico-publico" data-pt="Para: processos repetitivos envolvendo dados" data-en="For: repetitive data-related processes">Para: processos repetitivos envolvendo dados</div>
+      </div>
+    </div>
+    <div class="servicos-cta">
+      <p data-pt="Tem um projeto em mente? Vamos conversar sobre como posso ajudar." data-en="Have a project in mind? Let's talk about how I can help.">Tem um projeto em mente? Vamos conversar sobre como posso ajudar.</p>
+      <a href="#contato" class="btn-primary" data-pt="Solicitar orçamento" data-en="Request a quote">Solicitar orçamento</a>
+    </div>
+  </section>
+
   <!-- CONTATO -->
   <section id="contato">
     <div class="contato-grid">
       <div class="contato-info">
-        <div class="section-label" data-pt="05 — Contato" data-en="05 — Contact">05 — Contato</div>
+        <div class="section-label" data-pt="06 — Contato" data-en="06 — Contact">06 — Contato</div>
         <h2 data-pt="Vamos <em>conversar</em>" data-en="Let's <em>talk</em>">Vamos <em>conversar</em></h2>
-        <p data-pt="Aberta a colaborações, consultorias, oportunidades de pesquisa e projetos de análise econômica e dados." data-en="Open to collaborations, consulting, research opportunities, and economic analysis and data projects.">Aberta a colaborações, consultorias, oportunidades de pesquisa e projetos de análise econômica e dados.</p>
+        <p data-pt="Aberta a colaborações, consultorias, freelas e oportunidades de pesquisa em análise econômica e dados." data-en="Open to collaborations, consulting, freelance work and research opportunities in economic analysis and data.">Aberta a colaborações, consultorias, freelas e oportunidades de pesquisa em análise econômica e dados.</p>
         <div class="social-links">
           <a href="https://github.com/MarcelaFerreiraR" target="_blank" class="social-link">GitHub</a>
           <a href="https://linkedin.com/in/" target="_blank" class="social-link">LinkedIn</a>
@@ -445,10 +423,33 @@
         </div>
       </div>
       <div>
-        <<form class="contato-form" action="https://formspree.io/f/mbgrkezl" method="POST">
-          <div class="form-group"><label data-pt="Nome" data-en="Name">Nome</label><input type="text" placeholder="Seu nome" required></div>
-          <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
-          <div class="form-group"><label data-pt="Mensagem" data-en="Message">Mensagem</label><textarea placeholder="Sua mensagem..." required></textarea></div>
+        <form class="contato-form" action="https://formspree.io/f/mbgrkezl" method="POST">
+          <div class="form-group">
+            <label data-pt="Nome" data-en="Name">Nome</label>
+            <input type="text" name="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" name="email" placeholder="seu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label data-pt="Serviço de interesse" data-en="Service of interest">Serviço de interesse</label>
+            <select name="servico">
+              <option value="">Selecione um serviço</option>
+              <option value="tratamento">Tratamento de Dados</option>
+              <option value="analise">Análise de Dados</option>
+              <option value="powerbi">Dashboard Power BI</option>
+              <option value="bases">Construção de Bases</option>
+              <option value="estatistica">Análise Estatística</option>
+              <option value="econometria">Análise Econométrica</option>
+              <option value="automacao">Automação de Tarefas</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-pt="Mensagem" data-en="Message">Mensagem</label>
+            <textarea name="mensagem" placeholder="Descreva seu projeto ou dúvida..." required></textarea>
+          </div>
           <button type="submit" class="btn-primary" data-pt="Enviar mensagem" data-en="Send message">Enviar mensagem</button>
         </form>
       </div>
@@ -461,176 +462,116 @@
   </footer>
 
   <script>
-    // ===== LANGUAGE =====
-    let lang = 'pt';
-    function toggleLang() {
-      lang = lang === 'pt' ? 'en' : 'pt';
-      document.getElementById('langBtn').textContent = lang === 'pt' ? 'EN' : 'PT';
-      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    let lang='pt';
+    function toggleLang(){
+      lang=lang==='pt'?'en':'pt';
+      document.getElementById('langBtn').textContent=lang==='pt'?'EN':'PT';
+      document.documentElement.lang=lang==='pt'?'pt-BR':'en';
       applyLang();
     }
-    function applyLang() {
-      document.querySelectorAll('[data-pt]').forEach(el => {
-        const text = el.getAttribute('data-' + lang);
-        if (text) el.innerHTML = text;
+    function applyLang(){
+      document.querySelectorAll('[data-pt]').forEach(el=>{
+        const text=el.getAttribute('data-'+lang);
+        if(text)el.innerHTML=text;
       });
     }
 
-    // ===== ARTICLES =====
-    // Carrega artigos do index.json
-    async function loadArticles() {
-      try {
-        const base = '/site';
-        const res = await fetch(base + '/artigos/index.json');
-        const articles = await res.json();
-        const grid = document.getElementById('artigosGrid');
-        grid.innerHTML = '';
-        articles.forEach(art => {
-          const date = new Date(art.date).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
-          grid.innerHTML += `
-            <div class="artigo-card" onclick="openArticle('${art.slug}', '${art.title}', '${art.tag}', '${art.date}', '${art.readTime}')">
-              <div class="artigo-meta">
-                <span class="artigo-tag">${art.tag}</span>
-                <span>${date}</span>
-                <span>${art.readTime} read</span>
-              </div>
-              <h3>${art.title}</h3>
-              <p>${art.description}</p>
-              <span class="artigo-read-link" data-pt="Ler artigo →" data-en="Read article →">Ler artigo →</span>
-            </div>`;
+    async function loadArticles(){
+      try{
+        const res=await fetch('/site/artigos/index.json');
+        const articles=await res.json();
+        const grid=document.getElementById('artigosGrid');
+        grid.innerHTML='';
+        articles.forEach(art=>{
+          const date=new Date(art.date).toLocaleDateString('pt-BR',{year:'numeric',month:'long',day:'numeric'});
+          grid.innerHTML+=`<div class="artigo-card" onclick="openArticle('${art.slug}','${art.title}','${art.tag}','${art.date}','${art.readTime}')">
+            <div class="artigo-meta"><span class="artigo-tag">${art.tag}</span><span>${date}</span><span>${art.readTime} read</span></div>
+            <h3>${art.title}</h3><p>${art.description}</p>
+            <span class="artigo-read-link">Ler artigo →</span>
+          </div>`;
         });
         applyLang();
-      } catch(e) {
-        document.getElementById('artigosGrid').innerHTML = '<div style="padding:3rem;font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);grid-column:1/-1">Artigos em breve.</div>';
+      }catch(e){
+        document.getElementById('artigosGrid').innerHTML='<div style="padding:3rem;font-family:var(--mono);font-size:0.72rem;color:var(--text-dim);grid-column:1/-1">Artigos em breve.</div>';
       }
     }
 
-    // Abre leitor de artigo
-    async function openArticle(slug, title, tag, date, readTime) {
-      const reader = document.getElementById('articleReader');
-      document.getElementById('readerTag').textContent = tag;
-      document.getElementById('readerTitle').textContent = title;
-      const dateFormatted = new Date(date).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
-      document.getElementById('readerMeta').textContent = `${dateFormatted}  ·  ${readTime} de leitura`;
-      document.getElementById('readerBody').innerHTML = '<p style="font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)">Carregando...</p>';
-      document.getElementById('readerBreadcrumb').textContent = 'Artigos / ' + title;
+    async function openArticle(slug,title,tag,date,readTime){
+      const reader=document.getElementById('articleReader');
+      document.getElementById('readerTag').textContent=tag;
+      document.getElementById('readerTitle').textContent=title;
+      const df=new Date(date).toLocaleDateString('pt-BR',{year:'numeric',month:'long',day:'numeric'});
+      document.getElementById('readerMeta').textContent=`${df} · ${readTime} de leitura`;
+      document.getElementById('readerBreadcrumb').textContent='Artigos / '+title;
+      document.getElementById('readerBody').innerHTML='<p style="font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)">Carregando...</p>';
       reader.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      try {
-        const base = '/site';
-        const res = await fetch(`${base}/artigos/index.json`);
-        const articles = await res.json();
-        const article = articles.find(a => a.slug === slug);
-        if(article && article.content) {
-          document.getElementById('readerBody').innerHTML = marked.parse(article.content);
-        } else {
-          document.getElementById('readerBody').innerHTML = '<p>Artigo não encontrado.</p>';
-        }
-      } catch(e) {
-        document.getElementById('readerBody').innerHTML = '<p>Erro ao carregar o artigo.</p>';
+      document.body.style.overflow='hidden';
+      try{
+        const res=await fetch('/site/artigos/index.json');
+        const articles=await res.json();
+        const article=articles.find(a=>a.slug===slug);
+        document.getElementById('readerBody').innerHTML=article?.content?marked.parse(article.content):'<p>Artigo não encontrado.</p>';
+      }catch(e){
+        document.getElementById('readerBody').innerHTML='<p>Erro ao carregar o artigo.</p>';
       }
     }
 
-    function closeArticle() {
+    function closeArticle(){
       document.getElementById('articleReader').classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.style.overflow='';
     }
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticle()});
 
-    // Fechar com ESC
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
-
-    // ===== MACRO DATA =====
-    async function fetchBACEN(series) {
-      try {
-        const res = await fetch(`https://api.bcb.gov.br/dados/serie/bcdata.sgs.${series}/dados/ultimos/2?formato=json`);
-        if (!res.ok) throw new Error();
+    async function fetchBACEN(series){
+      try{
+        const res=await fetch(`https://api.bcb.gov.br/dados/serie/bcdata.sgs.${series}/dados/ultimos/2?formato=json`);
+        if(!res.ok)throw new Error();
         return await res.json();
-      } catch { return null; }
+      }catch{return null}
     }
-    function setMacroCard(id, value, unit, change, changeClass, period) {
-      const v = document.getElementById(id+'-val');
-      const c = document.getElementById(id+'-change');
-      const p = document.getElementById(id+'-period');
-      if(v) v.innerHTML = value + `<span class="unit"> ${unit}</span>`;
-      if(c) { c.textContent = change; c.className = 'macro-change ' + changeClass; }
-      if(p) p.textContent = period;
+    function setMacroCard(id,value,unit,change,changeClass,period){
+      const v=document.getElementById(id+'-val');
+      const c=document.getElementById(id+'-change');
+      const p=document.getElementById(id+'-period');
+      if(v)v.innerHTML=value+`<span class="unit"> ${unit}</span>`;
+      if(c){c.textContent=change;c.className='macro-change '+changeClass}
+      if(p)p.textContent=period;
     }
-    function setMacroError(id) {
-      const v = document.getElementById(id+'-val');
-      if(v) v.innerHTML = '<span style="font-size:1rem;color:var(--text-dim)">N/D</span>';
+    function setMacroError(id){
+      const v=document.getElementById(id+'-val');
+      if(v)v.innerHTML='<span style="font-size:1rem;color:var(--text-dim)">N/D</span>';
     }
-    async function loadMacroData() {
-      const updateEl = document.getElementById('updateTime');
-      if(updateEl) updateEl.textContent = new Date().toLocaleString('pt-BR', {dateStyle:'short', timeStyle:'short'});
-      const configs = [
-        { id: 'ibcbr',     series: 24363, unit: 'índice', label: 'vs anterior',    invertColor: false },
-        { id: 'ipca',      series: 13522, unit: '%',      label: 'pp vs anterior', invertColor: false },
-        { id: 'selic',     series: 432,   unit: '% a.a.', label: 'pp vs anterior', invertColor: true  },
-        { id: 'cambio',    series: 10813, unit: 'BRL',    label: 'R$ vs anterior', invertColor: true, decimals: 4 },
-        { id: 'desemprego',series: 24369, unit: '%',      label: 'pp vs anterior', invertColor: true  },
-        { id: 'divida',    series: 4536,  unit: '% PIB',  label: 'pp vs anterior', invertColor: true  },
+    async function loadMacroData(){
+      const updateEl=document.getElementById('updateTime');
+      if(updateEl)updateEl.textContent=new Date().toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'});
+      const configs=[
+        {id:'ibcbr',series:24363,unit:'índice',label:'vs anterior',invertColor:false},
+        {id:'ipca',series:13522,unit:'%',label:'pp vs anterior',invertColor:false},
+        {id:'selic',series:432,unit:'% a.a.',label:'pp vs anterior',invertColor:true},
+        {id:'cambio',series:10813,unit:'BRL',label:'R$ vs anterior',invertColor:true,decimals:4},
+        {id:'desemprego',series:24369,unit:'%',label:'pp vs anterior',invertColor:true},
+        {id:'divida',series:4536,unit:'% PIB',label:'pp vs anterior',invertColor:true},
       ];
-      for(const cfg of configs) {
-        const data = await fetchBACEN(cfg.series);
-        if(data && data.length >= 1) {
-          const last = data[data.length-1];
-          const prev = data.length >= 2 ? parseFloat(data[data.length-2].valor) : null;
-          const val = parseFloat(last.valor);
-          const dec = cfg.decimals || 2;
-          const diff = prev !== null ? (val - prev) : null;
-          let cls = 'neutral', arrow = '—';
-          if(diff !== null && diff !== 0) {
-            const isPositive = cfg.invertColor ? diff < 0 : diff > 0;
-            cls = isPositive ? 'positive' : 'negative';
-            arrow = diff > 0 ? '▲' : '▼';
+      for(const cfg of configs){
+        const data=await fetchBACEN(cfg.series);
+        if(data&&data.length>=1){
+          const last=data[data.length-1];
+          const prev=data.length>=2?parseFloat(data[data.length-2].valor):null;
+          const val=parseFloat(last.valor);
+          const dec=cfg.decimals||2;
+          const diff=prev!==null?(val-prev):null;
+          let cls='neutral',arrow='—';
+          if(diff!==null&&diff!==0){
+            const isPositive=cfg.invertColor?diff<0:diff>0;
+            cls=isPositive?'positive':'negative';
+            arrow=diff>0?'▲':'▼';
           }
-          const changeText = diff !== null && diff !== 0 ? `${arrow} ${Math.abs(diff).toFixed(dec)} ${cfg.label}` : cfg.id === 'selic' ? 'Sem alteração' : '';
-          setMacroCard(cfg.id, val.toFixed(dec), cfg.unit, changeText, cls, `Ref: ${last.data}`);
-        } else setMacroError(cfg.id);
+          const changeText=diff!==null&&diff!==0?`${arrow} ${Math.abs(diff).toFixed(dec)} ${cfg.label}`:cfg.id==='selic'?'Sem alteração':'';
+          setMacroCard(cfg.id,val.toFixed(dec),cfg.unit,changeText,cls,`Ref: ${last.data}`);
+        }else setMacroError(cfg.id);
       }
     }
 
-    // ===== FORM =====
-  async function handleForm(e) {
-  e.preventDefault(); // 1. Para o envio padrão do navegador
-
-  const btn = e.target.querySelector('button');
-  const originalText = btn.textContent;
-  btn.textContent = 'Enviando...';
-  btn.disabled = true;
-
-  // 2. Captura os dados digitados nos campos
-  const formData = new FormData(e.target);
-  const data = Object.fromEntries(formData.entries());
-
-  try {
-    // 3. Envia os dados convertidos em JSON para o link do seu action
-    const response = await fetch(e.target.action, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', // Resolve o erro informando que é JSON
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(data) // Transforma os dados em objeto JSON válido
-    });
-
-    if (response.ok) {
-      alert('Mensagem enviada com sucesso!');
-      e.target.reset(); // Limpa os campos do formulário
-    } else {
-      alert('Erro ao enviar os dados para o servidor.');
-    }
-  } catch (error) {
-    alert('Erro de conexão. Verifique sua internet.');
-  } finally {
-    // 4. Restaura o botão ao estado original
-    btn.textContent = originalText;
-    btn.disabled = false;
-  }
-}
-
-    // INIT
     loadArticles();
     loadMacroData();
   </script>
