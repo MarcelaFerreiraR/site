@@ -144,7 +144,7 @@
 
     /* SERVIÇOS */
     #servicos{background:var(--dark);border-top:1px solid var(--border)}
-    .servicos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:3rem}
+
     .servico-card{background:var(--dark);padding:2.5rem;transition:background 0.3s;position:relative;overflow:hidden}
     .servico-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),transparent);opacity:0;transition:opacity 0.3s}
     .servico-card:hover{background:var(--mid)}
@@ -153,7 +153,7 @@
     .servico-card h3{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:0.6rem}
     .servico-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.7;font-weight:300;margin-bottom:0.8rem}
     .servico-publico{font-family:var(--mono);font-size:0.6rem;color:var(--emerald-light);letter-spacing:0.12em;text-transform:uppercase}
-    .servicos-cta{text-align:center;padding:2rem 0}
+
     .servicos-cta p{font-size:0.9rem;color:var(--text-muted);margin-bottom:1.5rem;font-weight:300}
 
     /* CONTATO */
@@ -373,7 +373,7 @@
 
     <div style="margin-bottom:2.5rem">
       <div style="font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.2rem;padding-left:0.8rem;border-left:2px solid var(--emerald-light)" data-pt="Inteligência Econômica" data-en="Economic Intelligence">Inteligência Econômica</div>
-      <div class="servicos-grid">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
         <div class="servico-card">
           <h3 data-pt="Análise Econométrica" data-en="Econometric Analysis">Análise Econométrica</h3>
           <p data-pt="Modelagem econométrica para pesquisas quantitativas e econômicas. VAR, ARIMA, modelos de séries temporais e análise causal." data-en="Econometric modeling for quantitative and economic research. VAR, ARIMA, time series models and causal analysis.">Modelagem econométrica para pesquisas quantitativas e econômicas. VAR, ARIMA, modelos de séries temporais e análise causal.</p>
