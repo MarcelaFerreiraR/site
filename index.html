@@ -80,7 +80,7 @@
     .projeto-link{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:2px;transition:all 0.3s}
     .projeto-link:hover{color:var(--emerald-light);border-color:var(--emerald-light)}
 
-    /* MACRO */
+    /* Conjuntura Econômica*/
     #macro{background:var(--dark-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .dashboard-update{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.08em}
     .dashboard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
@@ -142,19 +142,6 @@
     .reader-body a{color:var(--emerald);text-decoration:underline}
     .reader-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 
-    /* SERVIÇOS */
-    #servicos{background:var(--dark);border-top:1px solid var(--border)}
-
-    .servico-card{background:var(--dark);padding:2.5rem;transition:background 0.3s;position:relative;overflow:hidden}
-    .servico-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),transparent);opacity:0;transition:opacity 0.3s}
-    .servico-card:hover{background:var(--mid)}
-    .servico-card:hover::before{opacity:1}
-    .servico-icone{font-size:1.8rem;margin-bottom:1.2rem;display:block}
-    .servico-card h3{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:0.6rem}
-    .servico-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.7;font-weight:300;margin-bottom:0.8rem}
-    .servico-publico{font-family:var(--mono);font-size:0.6rem;color:var(--emerald-light);letter-spacing:0.12em;text-transform:uppercase}
-
-    .servicos-cta p{font-size:0.9rem;color:var(--text-muted);margin-bottom:1.5rem;font-weight:300}
 
     /* CONTATO */
     #contato{background:var(--dark-2);border-top:1px solid var(--border)}
@@ -329,7 +316,7 @@
     </div>
   </section>
 
-  <!-- MACRO -->
+  <!-- Conjuntura Econômica -->
   <section id="macro">
     <div class="dashboard-header">
       <div>
@@ -364,72 +351,6 @@
   </section>
 
 
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <div class="section-label" data-pt="05 — Serviços" data-en="05 — Services">05 — Serviços</div>
-    <div class="dashboard-header">
-      <h2 class="section-title" style="margin-bottom:0" data-pt="Áreas de Atuação" data-en="Areas of Expertise">Áreas de Atuação</h2>
-    </div>
-
-    <div style="margin-bottom:2.5rem">
-      <div style="font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.2rem;padding-left:0.8rem;border-left:2px solid var(--emerald-light)">Inteligência Econômica <span style="opacity:0.5;font-weight:300"> · Econometria · Pesquisa Aplicada</span></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
-        <div class="servico-card">
-          <h3 data-pt="Análise Econométrica" data-en="Econometric Analysis">Análise Econométrica</h3>
-          <p data-pt="Modelagem econométrica para pesquisas quantitativas e econômicas. VAR, ARIMA, modelos de séries temporais e análise causal." data-en="Econometric modeling for quantitative and economic research. VAR, ARIMA, time series models and causal analysis.">Modelagem econométrica para pesquisas quantitativas e econômicas. VAR, ARIMA, modelos de séries temporais e análise causal.</p>
-        </div>
-        <div class="servico-card">
-          <h3 data-pt="Análise Estatística" data-en="Statistical Analysis">Análise Estatística</h3>
-          <p data-pt="Aplicação de métodos estatísticos para pesquisas, estudos e projetos acadêmicos. Testes de hipóteses, regressões e muito mais." data-en="Application of statistical methods for research, studies and academic projects. Hypothesis testing, regressions and more.">Aplicação de métodos estatísticos para pesquisas, estudos e projetos acadêmicos. Testes de hipóteses, regressões e muito mais.</p>
-        </div>
-        <div class="servico-card">
-          <h3 data-pt="Pesquisa Aplicada" data-en="Applied Research">Pesquisa Aplicada</h3>
-          <p data-pt="Desenvolvimento de pesquisas econômicas com rigor metodológico, combinando teoria e evidências empíricas." data-en="Development of economic research with methodological rigor, combining theory and empirical evidence.">Desenvolvimento de pesquisas econômicas com rigor metodológico, combinando teoria e evidências empíricas.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-bottom:2.5rem">
-      <div style="font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.2rem;padding-left:0.8rem;border-left:2px solid var(--emerald-light)">Data & Analytics <span style="opacity:0.5;font-weight:300"> · Dados · BI · Visualização</span></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
-        <div class="servico-card">
-          <h3 data-pt="Tratamento de Dados" data-en="Data Treatment">Tratamento de Dados</h3>
-          <p data-pt="Limpeza, organização e estruturação de bases de dados. Transformo dados brutos em informações confiáveis e prontas para análise." data-en="Cleaning, organizing and structuring databases. I turn raw data into reliable, analysis-ready information.">Limpeza, organização e estruturação de bases de dados. Transformo dados brutos em informações confiáveis e prontas para análise.</p>
-        </div>
-        <div class="servico-card">
-          <h3 data-pt="Análise de Dados & BI" data-en="Data Analysis & BI">Análise de Dados & BI</h3>
-          <p data-pt="Identifico padrões, tendências e insights. Criação de dashboards interativos no Power BI para acompanhamento de indicadores." data-en="I identify patterns, trends and insights. Creation of interactive Power BI dashboards for tracking indicators.">Identifico padrões, tendências e insights. Criação de dashboards interativos no Power BI para acompanhamento de indicadores.</p>
-        </div>
-        <div class="servico-card">
-          <h3 data-pt="Construção de Bases de Dados" data-en="Database Construction">Construção de Bases de Dados</h3>
-          <p data-pt="Coleto, integro e organizo dados de diferentes fontes, criando uma base estruturada e confiável." data-en="I collect, integrate and organize data from different sources, creating a structured and reliable base.">Coleto, integro e organizo dados de diferentes fontes, criando uma base estruturada e confiável.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-bottom:2.5rem">
-      <div style="font-family:var(--mono);font-size:0.65rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.2rem;padding-left:0.8rem;border-left:2px solid var(--emerald-light)">Forecasting <span style="opacity:0.5;font-weight:300"> · Séries Temporais · Previsão</span></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
-        <div class="servico-card">
-          <h3 data-pt="Séries Temporais" data-en="Time Series">Séries Temporais</h3>
-          <p data-pt="Modelagem e análise de séries temporais econômicas. Identificação de tendências, sazonalidade e ciclos." data-en="Modeling and analysis of economic time series. Identification of trends, seasonality and cycles.">Modelagem e análise de séries temporais econômicas. Identificação de tendências, sazonalidade e ciclos.</p>
-        </div>
-        <div class="servico-card">
-          <h3 data-pt="Previsão Econômica" data-en="Economic Forecasting">Previsão Econômica</h3>
-          <p data-pt="Modelos preditivos para indicadores macroeconômicos. ARIMA, SARIMA, VAR e machine learning aplicados à economia." data-en="Predictive models for macroeconomic indicators. ARIMA, SARIMA, VAR and machine learning applied to economics.">Modelos preditivos para indicadores macroeconômicos. ARIMA, SARIMA, VAR e machine learning aplicados à economia.</p>
-        </div>
-        <div class="servico-card">
-          <h3 data-pt="Análise de Conjuntura" data-en="Economic Outlook">Análise de Conjuntura</h3>
-          <p data-pt="Análise do cenário macroeconômico brasileiro e global, com foco em política monetária, fiscal e setor externo." data-en="Analysis of the Brazilian and global macroeconomic scenario, focusing on monetary, fiscal policy and external sector.">Análise do cenário macroeconômico brasileiro e global, com foco em política monetária, fiscal e setor externo.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="servicos-cta">
-      <p data-pt="Tem um projeto em mente? Entre em contato." data-en="Have a project in mind? Get in touch.">Tem um projeto em mente? Entre em contato.</p>
-      <a href="#contato" class="btn-primary" data-pt="Entre em contato" data-en="Get in touch">Entre em contato</a>
-    </div>
-  </section>
 
   <!-- CONTATO -->
   <section id="contato">
