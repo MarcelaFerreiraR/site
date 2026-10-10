@@ -9,10 +9,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
   <style>
     :root {
-      --emerald:#1a6b4a; --emerald-light:#2d9b6e; --emerald-pale:#e8f5ef;
-      --emerald-dim:rgba(26,107,74,0.08); --dark:#ffffff; --dark-2:#f7faf8;
-      --mid:#edf5f1; --text:#1a1a1a; --text-muted:#4a5550; --text-dim:#7a9a85;
-      --border:rgba(26,107,74,0.15); --mono:'DM Mono',monospace;
+      --emerald:#3fc08a; --emerald-light:#5fd3a0; --emerald-pale:rgba(63,192,138,0.12);
+      --emerald-dim:rgba(63,192,138,0.10); --dark:#06231a; --dark-2:#0a3023;
+      --mid:#0f3d2d; --text:#e8f5ef; --text-muted:#b7d2c5; --text-dim:#8db5a1;
+      --border:rgba(95,211,160,0.20); color-scheme:dark; --mono:'DM Mono',monospace;
       --serif:'Playfair Display',serif; --sans:'DM Sans',sans-serif;
     }
     *{margin:0;padding:0;box-sizing:border-box}
@@ -20,25 +20,25 @@
     body{background:var(--dark);color:var(--text);font-family:var(--sans);overflow-x:hidden}
 
     /* NAV */
-    nav{position:fixed;top:0;width:100%;z-index:100;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    nav{position:fixed;top:0;width:100%;z-index:100;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;background:rgba(6,35,26,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
     .nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--emerald);letter-spacing:0.02em;line-height:1.1;display:flex;flex-direction:column}
     .nav-logo span{color:var(--text-muted);font-style:italic;font-size:0.7rem;font-family:var(--mono);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.15rem}
     .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
     .nav-links a{font-family:var(--mono);font-size:0.75rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s}
     .nav-links a:hover{color:var(--emerald-light)}
     .lang-toggle{font-family:var(--mono);font-size:0.7rem;background:var(--emerald-dim);border:1px solid var(--border);color:var(--emerald);padding:0.4rem 0.9rem;border-radius:2px;cursor:pointer;letter-spacing:0.1em;transition:all 0.3s}
-    .lang-toggle:hover{background:var(--emerald);color:white}
+    .lang-toggle:hover{background:var(--emerald);color:#052017}
 
     /* HERO */
     .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 4rem 4rem;position:relative;overflow:hidden}
-    .hero::after{content:'';position:absolute;right:-5%;top:15%;width:50%;height:70%;background:radial-gradient(ellipse at center,rgba(26,107,74,0.07) 0%,transparent 70%);pointer-events:none}
+    .hero::after{content:'';position:absolute;right:-5%;top:15%;width:50%;height:70%;background:radial-gradient(ellipse at center,rgba(63,192,138,0.16) 0%,transparent 70%);pointer-events:none}
     .hero-tag{font-family:var(--mono);font-size:0.7rem;color:var(--emerald-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem}
     .hero-tag::before{content:'';display:block;width:2rem;height:1px;background:var(--emerald-light)}
     .hero h1{font-family:var(--serif);font-size:clamp(3rem,5vw,4.5rem);line-height:1.1;margin-bottom:1.5rem}
     .hero h1 em{color:var(--emerald-light);font-style:italic}
     .hero-desc{font-size:1rem;color:var(--text-muted);line-height:1.8;max-width:480px;margin-bottom:3rem;font-weight:300}
     .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
-    .btn-primary{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:var(--emerald);color:white;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));display:inline-block}
+    .btn-primary{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:var(--emerald);color:#052017;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));display:inline-block}
     .btn-primary:hover{background:var(--emerald-light);transform:translateY(-2px)}
     .btn-outline{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:transparent;color:var(--text-muted);border:1px solid var(--border);cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-block}
     .btn-outline:hover{border-color:var(--emerald-light);color:var(--emerald-light)}
@@ -92,8 +92,8 @@
     .macro-value{font-family:var(--serif);font-size:2.2rem;color:var(--text);line-height:1;margin-bottom:0.5rem}
     .macro-value .unit{font-size:1rem;color:var(--text-dim);font-family:var(--mono)}
     .macro-change{font-family:var(--mono);font-size:0.7rem;margin-bottom:0.4rem}
-    .macro-change.positive{color:#1a7a52}
-    .macro-change.negative{color:#c0392b}
+    .macro-change.positive{color:#5fd3a0}
+    .macro-change.negative{color:#ff8a7a}
     .macro-change.neutral{color:var(--text-dim)}
     .macro-period{font-family:var(--mono);font-size:0.6rem;color:var(--text-dim);letter-spacing:0.08em}
     .macro-loading{font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)}
@@ -114,9 +114,9 @@
     .artigo-read-link:hover{border-color:var(--emerald-light)}
 
     /* ARTICLE READER */
-    .article-reader{display:none;position:fixed;inset:0;z-index:200;background:white;overflow-y:auto}
+    .article-reader{display:none;position:fixed;inset:0;z-index:200;background:var(--dark);overflow-y:auto}
     .article-reader.active{display:block}
-    .reader-nav{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1rem 4rem;display:flex;align-items:center;gap:2rem;z-index:10}
+    .reader-nav{position:sticky;top:0;background:rgba(6,35,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1rem 4rem;display:flex;align-items:center;gap:2rem;z-index:10}
     .reader-back{font-family:var(--mono);font-size:0.72rem;color:var(--text-muted);cursor:pointer;letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;background:none;border:none}
     .reader-back:hover{color:var(--emerald)}
     .reader-breadcrumb{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.08em}
@@ -132,7 +132,7 @@
     .reader-body strong{color:var(--text);font-weight:600}
     .reader-body blockquote{border-left:3px solid var(--emerald-light);padding:1rem 1.5rem;background:var(--emerald-dim);margin:1.5rem 0;font-style:italic;color:var(--text)}
     .reader-body code{font-family:var(--mono);font-size:0.82rem;background:var(--mid);padding:0.15rem 0.4rem;border-radius:2px;color:var(--emerald)}
-    .reader-body pre{background:#f0f7f4;border:1px solid var(--border);padding:1.5rem;overflow-x:auto;margin:1.5rem 0;border-radius:2px}
+    .reader-body pre{background:var(--dark-2);border:1px solid var(--border);padding:1.5rem;overflow-x:auto;margin:1.5rem 0;border-radius:2px}
     .reader-body pre code{background:none;padding:0;color:var(--text);font-size:0.82rem}
     .reader-body ul,.reader-body ol{padding-left:1.5rem;margin-bottom:1.3rem}
     .reader-body li{margin-bottom:0.4rem}
@@ -142,6 +142,28 @@
     .reader-body a{color:var(--emerald);text-decoration:underline}
     .reader-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 
+
+    /* CALENDÁRIO */
+#calendario{border-top:1px solid var(--border)}
+.cal-chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.cal-chip{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1rem;background:transparent;color:var(--text-muted);border:1px solid var(--border);cursor:pointer;transition:all .3s}
+.cal-chip:hover{border-color:var(--emerald-light);color:var(--emerald-light)}
+.cal-chip.on{background:var(--emerald);border-color:var(--emerald);color:#052017}
+.cal-list{border:1px solid var(--border);background:var(--border);display:grid;gap:1px}
+.cal-week{font-family:var(--mono);font-size:.62rem;color:var(--emerald);letter-spacing:.15em;text-transform:uppercase;background:var(--emerald-pale);padding:.7rem 1.5rem}
+.cal-ev{display:grid;grid-template-columns:76px 1fr;gap:1.5rem;background:var(--dark);padding:1.4rem 1.5rem;transition:background .3s}
+.cal-ev:hover{background:var(--dark-2)}
+.cal-date{text-align:center;background:var(--emerald-pale);padding:.6rem 0;align-self:start}
+.cal-date b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1;color:var(--emerald)}
+.cal-date span{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+.cal-ev h3{font-family:var(--serif);font-size:1.15rem;line-height:1.3;margin-bottom:.4rem}
+.cal-meta{font-family:var(--mono);font-size:.62rem;color:var(--text-dim);letter-spacing:.06em;display:flex;gap:1.2rem;flex-wrap:wrap}
+.cal-cat{color:var(--emerald-light)}
+.cal-st:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.4rem;background:var(--emerald-light)}
+.cal-st.calc:before{background:#e3a93a}
+.cal-st.check:before{background:#ff8a7a}
+.cal-legend{display:flex;gap:1.5rem;flex-wrap:wrap;font-family:var(--mono);font-size:.6rem;color:var(--text-dim);letter-spacing:.06em;margin-top:1.2rem}
+@media(max-width:900px){.cal-ev{grid-template-columns:64px 1fr;gap:1rem;padding:1.1rem}}
 
     /* CONTATO */
     #contato{background:var(--dark-2);border-top:1px solid var(--border)}
@@ -206,6 +228,7 @@
       <li><a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a></li>
       <li><a href="#projetos" data-pt="Projetos" data-en="Projects">Projetos</a></li>
       <li><a href="#macro" data-pt="Macro Research" data-en="Macro Research">Conjuntura Econômica</a></li>
+      <li><a href="#calendario" data-pt="Calendário" data-en="Calendar">Calendário</a></li>
       <li><a href="#artigos" data-pt="Artigos" data-en="Articles">Artigos</a></li>
       <li><a href="#contato" data-pt="Contato" data-en="Contact">Contato</a></li>
     </ul>
@@ -337,9 +360,27 @@
     </div>
   </section>
 
+  <section id="calendario">
+  <div class="section-label" data-pt="04 — Calendário" data-en="04 — Calendar">04 — Calendário</div>
+  <div class="dashboard-header">
+    <div>
+      <h2 class="section-title" style="margin-bottom:.8rem" data-pt="Calendário de Divulgações" data-en="Release Calendar">Calendário de Divulgações</h2>
+      <div class="dashboard-update" id="calPeriodo"></div>
+    </div>
+  </div>
+  <div class="cal-chips" id="calChips"></div>
+  <div class="cal-list" id="calList"></div>
+  <div class="cal-legend">
+    <span class="cal-st" data-pt="Data na fonte oficial" data-en="Date from official source">Data na fonte oficial</span>
+    <span class="cal-st calc" data-pt="Calculada pela regra de publicação" data-en="Calculated from publication rule">Calculada pela regra de publicação</span>
+    <span class="cal-st check" data-pt="Fonte não oficial: confirmar" data-en="Unofficial source: to confirm">Fonte não oficial: confirmar</span>
+  </div>
+  <div class="dashboard-note" style="margin-top:1.5rem" data-pt="Boletim Focus (BCB): segundas-feiras, às 8h30, nos dias úteis. Fontes: IBGE, Banco Central, MDIC e Federal Reserve. Horários de Brasília. Datas sujeitas a alteração pelos órgãos." data-en="Focus Survey (BCB): Mondays, 8:30 am, on business days. Sources: IBGE, Central Bank of Brazil, MDIC and Federal Reserve. Brasília time. Dates are subject to change by the agencies.">Boletim Focus (BCB): segundas-feiras, às 8h30, nos dias úteis. Fontes: IBGE, Banco Central, MDIC e Federal Reserve. Horários de Brasília. Datas sujeitas a alteração pelos órgãos.</div>
+</section>
+
   <!-- ARTIGOS -->
   <section id="artigos">
-    <div class="section-label" data-pt="04 — Artigos" data-en="04 — Articles">04 — Artigos</div>
+    <div class="section-label" data-pt="05 — Artigos" data-en="05 — Articles">05 — Artigos</div>
     <div class="dashboard-header">
       <h2 class="section-title" style="margin-bottom:0" data-pt="Publicações & Análises" data-en="Publications & Analyses">Publicações & Análises</h2>
     </div>
@@ -402,6 +443,7 @@
         const text=el.getAttribute('data-'+lang);
         if(text)el.innerHTML=text;
       });
+      if(typeof renderCal==='function')renderCal();
     }
 
     async function loadArticles(){
@@ -499,6 +541,60 @@
         }else setMacroError(cfg.id);
       }
     }
+/* ===== CALENDÁRIO: edite só a lista CAL_EVENTOS e o CAL_PERIODO a cada mês ===== */
+const CAL_PERIODO={pt:'13 de outubro a 30 de novembro de 2026',en:'October 13 to November 30, 2026'};
+const CAL_CATS={
+  inflacao:{pt:'Inflação',en:'Inflation'},atividade:{pt:'Atividade',en:'Activity'},
+  trabalho:{pt:'Trabalho',en:'Labor'},monetaria:{pt:'Política monetária',en:'Monetary policy'},
+  externo:{pt:'Setor externo',en:'External sector'},eua:{pt:'EUA',en:'US'}
+};
+/* s: ok = fonte oficial | calc = calculada pela regra | check = fonte não oficial */
+const CAL_EVENTOS=[
+ {d:'2026-10-13',c:'externo',t:'Balança comercial: parcial mensal',te:'Trade balance: monthly partial',r:'1 a 11/out',f:'MDIC',s:'ok'},
+ {d:'2026-10-14',c:'atividade',t:'PMS: Pesquisa Mensal de Serviços',te:'PMS: Monthly Services Survey',r:'ago/26',f:'IBGE',s:'ok'},
+ {d:'2026-10-15',c:'atividade',t:'PMC: Pesquisa Mensal de Comércio',te:'PMC: Monthly Retail Survey',r:'ago/26',f:'IBGE',s:'ok'},
+ {d:'2026-10-15',c:'atividade',t:'LSPA: safra agrícola',te:'LSPA: crop survey',r:'set/26',f:'IBGE',s:'ok'},
+ {d:'2026-10-16',c:'atividade',t:'IBC-Br: atividade econômica',te:'IBC-Br: economic activity',r:'ago/26',f:'BCB (confirmar)',s:'check'},
+ {d:'2026-10-19',c:'externo',t:'Balança comercial: parcial mensal',te:'Trade balance: monthly partial',r:'12 a 18/out',f:'MDIC',s:'ok'},
+ {d:'2026-10-23',c:'inflacao',t:'IPCA-15',te:'IPCA-15 (mid-month CPI)',r:'out/26',f:'IBGE',s:'ok'},
+ {d:'2026-10-26',c:'externo',t:'Balança comercial: parcial mensal',te:'Trade balance: monthly partial',r:'19 a 25/out',f:'MDIC',s:'ok'},
+ {d:'2026-10-27',c:'inflacao',t:'IPP: preços ao produtor',te:'PPI: producer prices',r:'set/26',f:'IBGE',s:'ok'},
+ {d:'2026-10-28',c:'eua',t:'FOMC: decisão de juros',te:'FOMC: rate decision',r:'reunião 27 e 28/out',f:'Federal Reserve',s:'ok'},
+ {d:'2026-10-30',c:'trabalho',t:'PNAD Contínua mensal',te:'PNAD Contínua (monthly)',r:'jul-set/26',f:'IBGE',s:'ok'},
+ {d:'2026-11-04',c:'monetaria',t:'Copom: decisão da Selic',te:'Copom: Selic decision',r:'reunião 3 e 4/nov',f:'BCB',s:'ok'},
+ {d:'2026-11-10',c:'monetaria',t:'Ata do Copom (8h)',te:'Copom minutes (8 am)',r:'reunião 3 e 4/nov',f:'BCB',s:'calc'},
+ {d:'2026-11-11',c:'atividade',t:'PMS: Pesquisa Mensal de Serviços',te:'PMS: Monthly Services Survey',r:'set/26',f:'IBGE',s:'ok'},
+ {d:'2026-11-12',c:'inflacao',t:'IPCA',te:'IPCA (CPI)',r:'out/26',f:'IBGE',s:'ok'},
+ {d:'2026-11-13',c:'atividade',t:'PMC: Pesquisa Mensal de Comércio',te:'PMC: Monthly Retail Survey',r:'set/26',f:'IBGE',s:'ok'},
+ {d:'2026-11-13',c:'atividade',t:'LSPA: safra agrícola',te:'LSPA: crop survey',r:'out/26',f:'IBGE',s:'ok'},
+ {d:'2026-11-18',c:'trabalho',t:'PNAD Contínua trimestral',te:'PNAD Contínua (quarterly)',r:'jul-set/26',f:'IBGE',s:'ok'},
+ {d:'2026-11-18',c:'eua',t:'Ata do FOMC',te:'FOMC minutes',r:'reunião 27 e 28/out',f:'Federal Reserve',s:'calc'},
+ {d:'2026-11-27',c:'trabalho',t:'PNAD Contínua mensal',te:'PNAD Contínua (monthly)',r:'ago-out/26',f:'IBGE',s:'ok'}
+];
+let calCat='todas';
+const CAL_DIAS={pt:['dom','seg','ter','qua','qui','sex','sáb'],en:['sun','mon','tue','wed','thu','fri','sat']};
+const CAL_MES={pt:['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],en:['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']};
+function calParse(s){const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)}
+function calMonday(d){const x=new Date(d);x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
+function renderCal(){
+  const L=lang==='en'?'en':'pt';
+  const per=document.getElementById('calPeriodo');if(per)per.textContent=CAL_PERIODO[L];
+  const chips=document.getElementById('calChips');
+  chips.innerHTML=[['todas',{pt:'Todas',en:'All'}],...Object.entries(CAL_CATS)].map(([k,v])=>`<button class="cal-chip${k===calCat?' on':''}" data-k="${k}">${v[L]}</button>`).join('');
+  const ev=CAL_EVENTOS.filter(e=>calCat==='todas'||e.c===calCat).sort((a,b)=>a.d.localeCompare(b.d));
+  let h='',cur='';
+  ev.forEach(e=>{
+    const d=calParse(e.d),m=calMonday(d),k=m.getTime();
+    if(k!==cur){cur=k;const f=new Date(m);f.setDate(f.getDate()+4);
+      h+=`<div class="cal-week">${L==='en'?'Week of':'Semana de'} ${m.getDate()} ${CAL_MES[L][m.getMonth()]} ${L==='en'?'to':'a'} ${f.getDate()} ${CAL_MES[L][f.getMonth()]}</div>`}
+    h+=`<div class="cal-ev"><div class="cal-date"><b>${d.getDate()}</b><span>${CAL_DIAS[L][d.getDay()]} · ${CAL_MES[L][d.getMonth()]}</span></div>
+      <div><h3>${L==='en'?e.te:e.t}</h3><div class="cal-meta"><span class="cal-cat">${CAL_CATS[e.c][L]}</span><span>${L==='en'?'Ref.':'Ref.'}: ${e.r}</span><span class="cal-st ${e.s}">${e.f}</span></div></div></div>`;
+  });
+  document.getElementById('calList').innerHTML=h;
+}
+document.getElementById('calChips').addEventListener('click',e=>{const b=e.target.closest('.cal-chip');if(!b)return;calCat=b.dataset.k;renderCal()});
+renderCal();
+
 
     loadArticles();
     loadMacroData();
